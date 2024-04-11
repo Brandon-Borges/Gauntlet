@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public int potionCount;
     public int keyCount;
 
+    public bool isFiring;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +29,13 @@ public class Player : MonoBehaviour
     public void healthDrain()
     {
         hp--;
+    }
+
+    public IEnumerator shoot()
+    {
+        //shoot projectile
+        isFiring = false;
+        yield return new WaitForSeconds(fireSpeed);
+        isFiring = true;
     }
 }
