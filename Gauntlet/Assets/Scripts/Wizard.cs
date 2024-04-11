@@ -11,6 +11,7 @@ public class Wizard : Player
     {
         playerInputs = new WizardInputs();
         playerInputs.Enable();
+        InvokeRepeating("healthDrain", 1f, 1f);
     }
 
     // Update is called once per frame

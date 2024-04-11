@@ -11,6 +11,7 @@ public class Valkyrie : Player
     {
         playerInputs = new ValkyrieInputs();
         playerInputs.Enable();
+        InvokeRepeating("healthDrain", 1f, 1f);
     }
 
     // Update is called once per frame

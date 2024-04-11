@@ -11,6 +11,7 @@ public class Warrior : Player
     {
         playerInputs = new WarriorInputs();
         playerInputs.Enable();
+        InvokeRepeating("healthDrain", 1f, 1f);
     }
 
     // Update is called once per frame

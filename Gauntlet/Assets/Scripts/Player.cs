@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("healthDrain", 1f, 1f);
+        
     }
 
     // Update is called once per frame

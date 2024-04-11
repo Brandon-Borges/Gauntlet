@@ -11,6 +11,7 @@ public class Elf : Player
     {
         playerInputs = new ElfInputs();
         playerInputs.Enable();
+        InvokeRepeating("healthDrain", 1f, 1f);
     }
 
     // Update is called once per frame
