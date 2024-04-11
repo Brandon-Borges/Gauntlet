@@ -2,7 +2,7 @@
     "name": "ElfInputs",
     "maps": [
         {
-            "name": "Move",
+            "name": "Elf",
             "id": "c64d8bfe-af0a-4964-b352-4e798ed0410f",
             "actions": [
                 {

@@ -1,8 +1,8 @@
 {
-    "name": "WizardInputs",
+    "name": "ValkyrieInputs",
     "maps": [
         {
-            "name": "Move",
+            "name": "Valkyrie",
             "id": "c64d8bfe-af0a-4964-b352-4e798ed0410f",
             "actions": [
                 {
@@ -17,7 +17,7 @@
             ],
             "bindings": [
                 {
-                    "name": "IJKL",
+                    "name": "TFGH",
                     "id": "15d3dbc7-4a9c-4928-8bf1-16577d4021ad",
                     "path": "2DVector",
                     "interactions": "",
@@ -30,7 +30,7 @@
                 {
                     "name": "up",
                     "id": "40316865-639a-4caf-a363-5c1f8e629223",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -41,7 +41,7 @@
                 {
                     "name": "down",
                     "id": "0818470c-fff9-4773-90e6-da23d8f530d0",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -52,7 +52,7 @@
                 {
                     "name": "left",
                     "id": "84c46517-cb90-4817-a9c5-a4d5e549fd5c",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -63,7 +63,7 @@
                 {
                     "name": "right",
                     "id": "64b50af4-3fed-417b-86db-7d0263b2f4c5",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
