@@ -251,6 +251,7 @@ MonoBehaviour:
   score: 0
   potionCount: 0
   keyCount: 0
+  isFiring: 0
 --- !u!114 &29123761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +450,7 @@ MonoBehaviour:
   score: 0
   potionCount: 0
   keyCount: 0
+  isFiring: 0
 --- !u!1 &387098048
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +720,7 @@ MonoBehaviour:
   score: 0
   potionCount: 0
   keyCount: 0
+  isFiring: 0
 --- !u!1 &1412008327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,6 +1021,7 @@ MonoBehaviour:
   score: 0
   potionCount: 0
   keyCount: 0
+  isFiring: 0
 --- !u!1 &1661016700
 GameObject:
   m_ObjectHideFlags: 0
