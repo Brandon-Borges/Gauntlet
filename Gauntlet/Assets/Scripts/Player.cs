@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public int keyCount;
 
     public bool isFiring;
+    public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
