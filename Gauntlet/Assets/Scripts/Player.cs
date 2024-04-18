@@ -34,9 +34,15 @@ public class Player : MonoBehaviour
         hp--;
     }
 
+    public void quickChange()
+    {
+        isCurrentlyFiring = false;
+    }
+
     public IEnumerator shoot()
     {
-        Instantiate(projectile, transform.position, projectile.transform.rotation);
+        GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
+        bullet.transform.forward = this.transform.forward;
         isFiring = true;
         yield return new WaitForSeconds(fireSpeed);
         isFiring = false;

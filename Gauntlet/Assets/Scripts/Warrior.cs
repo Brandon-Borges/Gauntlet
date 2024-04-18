@@ -44,12 +44,11 @@ public class Warrior : Player
             }
         }
 
-
         if (playerInputs.Warrior.Shoot.ReadValue<float>() > .1f)
         {
             isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot());
         }
-        else isCurrentlyFiring = false;
+        else Invoke("quickChange", 0.5f);
     }
 }

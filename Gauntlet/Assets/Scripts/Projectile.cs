@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += hero_direction * speed * Time.deltaTime;
+        transform.position += Vector3.forward * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
