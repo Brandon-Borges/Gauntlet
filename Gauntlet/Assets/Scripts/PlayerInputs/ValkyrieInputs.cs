@@ -35,6 +35,24 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""76b1fcb8-cd39-41fe-b585-2889e605e9e3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Potion"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6793208-dad0-4d2d-8d49-34cc4c7fcbd1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +110,28 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d5b4351-dede-4353-abd9-045c846976b3"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""980a8344-0d7c-4e62-ba48-a5187b5ffe5b"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +141,8 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
         // Valkyrie
         m_Valkyrie = asset.FindActionMap("Valkyrie", throwIfNotFound: true);
         m_Valkyrie_Move = m_Valkyrie.FindAction("Move", throwIfNotFound: true);
+        m_Valkyrie_Shoot = m_Valkyrie.FindAction("Shoot", throwIfNotFound: true);
+        m_Valkyrie_Potion = m_Valkyrie.FindAction("Potion", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +205,15 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Valkyrie;
     private List<IValkyrieActions> m_ValkyrieActionsCallbackInterfaces = new List<IValkyrieActions>();
     private readonly InputAction m_Valkyrie_Move;
+    private readonly InputAction m_Valkyrie_Shoot;
+    private readonly InputAction m_Valkyrie_Potion;
     public struct ValkyrieActions
     {
         private @ValkyrieInputs m_Wrapper;
         public ValkyrieActions(@ValkyrieInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Valkyrie_Move;
+        public InputAction @Shoot => m_Wrapper.m_Valkyrie_Shoot;
+        public InputAction @Potion => m_Wrapper.m_Valkyrie_Potion;
         public InputActionMap Get() { return m_Wrapper.m_Valkyrie; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +226,12 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Potion.started += instance.OnPotion;
+            @Potion.performed += instance.OnPotion;
+            @Potion.canceled += instance.OnPotion;
         }
 
         private void UnregisterCallbacks(IValkyrieActions instance)
@@ -187,6 +239,12 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Potion.started -= instance.OnPotion;
+            @Potion.performed -= instance.OnPotion;
+            @Potion.canceled -= instance.OnPotion;
         }
 
         public void RemoveCallbacks(IValkyrieActions instance)
@@ -207,5 +265,7 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
     public interface IValkyrieActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnPotion(InputAction.CallbackContext context);
     }
 }

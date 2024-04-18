@@ -35,6 +35,24 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""c41b3a88-2392-48e1-ba4c-84dcad1dd6d6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Potion"",
+                    ""type"": ""Button"",
+                    ""id"": ""67976185-f5ab-4e7a-a6c3-ba57b3e40b2c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +110,28 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15d4a481-5b93-47a9-9ca2-06904aa2ad52"",
+                    ""path"": ""<Keyboard>/numpad7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0441f0d1-f409-4e1a-a93d-31a8e4025841"",
+                    ""path"": ""<Keyboard>/numpad9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +141,8 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
         // Elf
         m_Elf = asset.FindActionMap("Elf", throwIfNotFound: true);
         m_Elf_Move = m_Elf.FindAction("Move", throwIfNotFound: true);
+        m_Elf_Shoot = m_Elf.FindAction("Shoot", throwIfNotFound: true);
+        m_Elf_Potion = m_Elf.FindAction("Potion", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +205,15 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Elf;
     private List<IElfActions> m_ElfActionsCallbackInterfaces = new List<IElfActions>();
     private readonly InputAction m_Elf_Move;
+    private readonly InputAction m_Elf_Shoot;
+    private readonly InputAction m_Elf_Potion;
     public struct ElfActions
     {
         private @ElfInputs m_Wrapper;
         public ElfActions(@ElfInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Elf_Move;
+        public InputAction @Shoot => m_Wrapper.m_Elf_Shoot;
+        public InputAction @Potion => m_Wrapper.m_Elf_Potion;
         public InputActionMap Get() { return m_Wrapper.m_Elf; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +226,12 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Potion.started += instance.OnPotion;
+            @Potion.performed += instance.OnPotion;
+            @Potion.canceled += instance.OnPotion;
         }
 
         private void UnregisterCallbacks(IElfActions instance)
@@ -187,6 +239,12 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Potion.started -= instance.OnPotion;
+            @Potion.performed -= instance.OnPotion;
+            @Potion.canceled -= instance.OnPotion;
         }
 
         public void RemoveCallbacks(IElfActions instance)
@@ -207,5 +265,7 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
     public interface IElfActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnPotion(InputAction.CallbackContext context);
     }
 }

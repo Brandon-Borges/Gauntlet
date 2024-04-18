@@ -35,6 +35,24 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a37c3c5c-2c57-40cd-a3a6-b2bae13d3d0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Potion"",
+                    ""type"": ""Button"",
+                    ""id"": ""a31cec85-f0aa-4fed-92f4-0c4d089afa92"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +110,28 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""753a57e0-228e-4043-903c-f6dc4144df1c"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aea3f334-2c32-4b5e-8684-1456801e50ad"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +141,8 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
         // Wizard
         m_Wizard = asset.FindActionMap("Wizard", throwIfNotFound: true);
         m_Wizard_Move = m_Wizard.FindAction("Move", throwIfNotFound: true);
+        m_Wizard_Shoot = m_Wizard.FindAction("Shoot", throwIfNotFound: true);
+        m_Wizard_Potion = m_Wizard.FindAction("Potion", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +205,15 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Wizard;
     private List<IWizardActions> m_WizardActionsCallbackInterfaces = new List<IWizardActions>();
     private readonly InputAction m_Wizard_Move;
+    private readonly InputAction m_Wizard_Shoot;
+    private readonly InputAction m_Wizard_Potion;
     public struct WizardActions
     {
         private @WizardInputs m_Wrapper;
         public WizardActions(@WizardInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Wizard_Move;
+        public InputAction @Shoot => m_Wrapper.m_Wizard_Shoot;
+        public InputAction @Potion => m_Wrapper.m_Wizard_Potion;
         public InputActionMap Get() { return m_Wrapper.m_Wizard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +226,12 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Potion.started += instance.OnPotion;
+            @Potion.performed += instance.OnPotion;
+            @Potion.canceled += instance.OnPotion;
         }
 
         private void UnregisterCallbacks(IWizardActions instance)
@@ -187,6 +239,12 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Potion.started -= instance.OnPotion;
+            @Potion.performed -= instance.OnPotion;
+            @Potion.canceled -= instance.OnPotion;
         }
 
         public void RemoveCallbacks(IWizardActions instance)
@@ -207,5 +265,7 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
     public interface IWizardActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnPotion(InputAction.CallbackContext context);
     }
 }
