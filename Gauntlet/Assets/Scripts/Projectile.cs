@@ -20,6 +20,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform.tag == "Warrior" || other.transform.tag == "Valkyrie" ||
+            other.transform.tag == "Wizard" || other.transform.tag == "Elf")
+        {
+            if (other.gameObject.GetComponent<Player>().friendlyFire == true)
+            {
+                //deal damage
+            }
+        }
+
         Destroy(this);
     }
 }

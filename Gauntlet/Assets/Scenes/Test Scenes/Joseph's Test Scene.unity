@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 29123761}
   m_Layer: 0
   m_Name: Warrior
-  m_TagString: Untagged
+  m_TagString: Warrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: cc48adb5c8bdca3449d0b740f20adef4,
     type: 3}
 --- !u!114 &29123761
@@ -313,7 +314,7 @@ GameObject:
   - component: {fileID: 235623164}
   m_Layer: 0
   m_Name: Elf
-  m_TagString: Untagged
+  m_TagString: Elf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,6 +470,7 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: 7acf34dcc364bbd42ac02123d3011e7b,
     type: 3}
 --- !u!1 &387098048
@@ -593,7 +595,7 @@ GameObject:
   - component: {fileID: 435023364}
   m_Layer: 0
   m_Name: Valkyrie
-  m_TagString: Untagged
+  m_TagString: Valkyrie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,6 +751,7 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: 924eb367357b1fd468a40cffafafdd0b,
     type: 3}
 --- !u!1 &1412008327
@@ -904,7 +907,7 @@ GameObject:
   - component: {fileID: 1613707723}
   m_Layer: 0
   m_Name: Wizard
-  m_TagString: Untagged
+  m_TagString: Wizard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1060,6 +1063,7 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: cdb86ebd2baaf5b44a4c95abdc199dfe,
     type: 3}
 --- !u!1 &1661016700
