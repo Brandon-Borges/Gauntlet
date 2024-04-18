@@ -40,5 +40,10 @@ public class Valkyrie : Player
         {
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
+
+        if (playerInputs.Valkyrie.Shoot.ReadValue<float>() > .1f)
+        {
+            StartCoroutine(shoot());
+        }
     }
 }

@@ -41,8 +41,8 @@ public class Warrior : Player
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
 
-        //while (shoot is down) {
-        //  StartCoroutine(shoot());
-        //}
+        if (playerInputs.Warrior.Shoot.ReadValue<float>() > .1f) {
+            StartCoroutine(shoot());
+        }
     }
 }

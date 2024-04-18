@@ -40,5 +40,10 @@ public class Wizard : Player
         {
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
+
+        if (playerInputs.Wizard.Shoot.ReadValue<float>() > .1f)
+        {
+            StartCoroutine(shoot());
+        }
     }
 }

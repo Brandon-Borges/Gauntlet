@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  fireSpeed: 0
+  fireSpeed: 1
   defense: 0
   hp: 3000
   score: 0
@@ -284,6 +284,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 651e48fc-dbb2-4b3f-bd86-93a56d5e9d5b
     m_ActionName: Warrior/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 035453a4-7cd1-4431-b5e1-84f9f95f73e4
+    m_ActionName: Warrior/Shoot[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1137e0cd-835b-4add-88ef-8ca427a0dfba
+    m_ActionName: Warrior/Potion[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Warrior
@@ -340,6 +348,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 651e48fc-dbb2-4b3f-bd86-93a56d5e9d5b
     m_ActionName: Warrior/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c41b3a88-2392-48e1-ba4c-84dcad1dd6d6
+    m_ActionName: Elf/Shoot[/Keyboard/numpad7]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67976185-f5ab-4e7a-a6c3-ba57b3e40b2c
+    m_ActionName: Elf/Potion[/Keyboard/numpad9]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Elf
@@ -446,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  fireSpeed: 0
+  fireSpeed: 1
   defense: 0
   hp: 3000
   score: 0
@@ -612,6 +628,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 651e48fc-dbb2-4b3f-bd86-93a56d5e9d5b
     m_ActionName: Warrior/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 76b1fcb8-cd39-41fe-b585-2889e605e9e3
+    m_ActionName: Valkyrie/Shoot[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f6793208-dad0-4d2d-8d49-34cc4c7fcbd1
+    m_ActionName: Valkyrie/Potion[/Keyboard/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Valkyrie
@@ -718,7 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  fireSpeed: 0
+  fireSpeed: 1
   defense: 0
   hp: 3000
   score: 0
@@ -915,6 +939,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 651e48fc-dbb2-4b3f-bd86-93a56d5e9d5b
     m_ActionName: Warrior/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a37c3c5c-2c57-40cd-a3a6-b2bae13d3d0d
+    m_ActionName: Wizard/Shoot[/Keyboard/u]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a31cec85-f0aa-4fed-92f4-0c4d089afa92
+    m_ActionName: Wizard/Potion[/Keyboard/o]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Wizard
@@ -1021,7 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  fireSpeed: 0
+  fireSpeed: 1
   defense: 0
   hp: 3000
   score: 0

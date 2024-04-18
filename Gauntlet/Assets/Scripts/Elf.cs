@@ -40,5 +40,10 @@ public class Elf : Player
         {
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
+
+        if (playerInputs.Elf.Shoot.ReadValue<float>() > .1f)
+        {
+            StartCoroutine(shoot());
+        }
     }
 }
