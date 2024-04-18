@@ -24,26 +24,31 @@ public class Wizard : Player
     {
         Vector2 MoveVector = playerInputs.Wizard.Move.ReadValue<Vector2>();
 
-        if (MoveVector.x > 0)
+        if (!isFiring)
         {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        }
-        if (MoveVector.x < 0)
-        {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        }
-        if (MoveVector.y > 0)
-        {
-            transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
-        }
-        if (MoveVector.y < 0)
-        {
-            transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+            if (MoveVector.x > 0)
+            {
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            }
+            if (MoveVector.x < 0)
+            {
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            }
+            if (MoveVector.y > 0)
+            {
+                transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+            }
+            if (MoveVector.y < 0)
+            {
+                transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+            }
         }
 
         if (playerInputs.Wizard.Shoot.ReadValue<float>() > .1f)
         {
+            isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot());
         }
+        else isCurrentlyFiring = false;
     }
 }

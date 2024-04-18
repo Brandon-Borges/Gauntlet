@@ -24,25 +24,32 @@ public class Warrior : Player
     {
         Vector2 MoveVector = playerInputs.Warrior.Move.ReadValue<Vector2>();
 
-        if (MoveVector.x > 0)
+        if (!isCurrentlyFiring)
         {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        }
-        if (MoveVector.x < 0)
-        {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        }
-        if (MoveVector.y > 0)
-        {
-            transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
-        }
-        if (MoveVector.y < 0)
-        {
-            transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+            if (MoveVector.x > 0)
+            {
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            }
+            if (MoveVector.x < 0)
+            {
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            }
+            if (MoveVector.y > 0)
+            {
+                transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+            }
+            if (MoveVector.y < 0)
+            {
+                transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+            }
         }
 
-        if (playerInputs.Warrior.Shoot.ReadValue<float>() > .1f) {
+
+        if (playerInputs.Warrior.Shoot.ReadValue<float>() > .1f)
+        {
+            isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot());
         }
+        else isCurrentlyFiring = false;
     }
 }

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public int keyCount;
 
     public bool isFiring;
+    public bool isCurrentlyFiring;
     public bool friendlyFire;
     public GameObject projectile;
 
