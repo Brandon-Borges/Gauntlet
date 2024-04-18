@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 29123757}
   - component: {fileID: 29123756}
   - component: {fileID: 29123760}
-  - component: {fileID: 29123761}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Warrior
@@ -252,52 +251,10 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  isCurrentlyFiring: 0
   friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: cc48adb5c8bdca3449d0b740f20adef4,
     type: 3}
---- !u!114 &29123761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29123755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 289bef33fbb0a344b885339817e0b79d,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 651e48fc-dbb2-4b3f-bd86-93a56d5e9d5b
-    m_ActionName: Warrior/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 035453a4-7cd1-4431-b5e1-84f9f95f73e4
-    m_ActionName: Warrior/Shoot[/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1137e0cd-835b-4add-88ef-8ca427a0dfba
-    m_ActionName: Warrior/Potion[/Keyboard/e]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Warrior
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &235623163
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +427,7 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  isCurrentlyFiring: 0
   friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: 7acf34dcc364bbd42ac02123d3011e7b,
     type: 3}
@@ -751,6 +709,7 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  isCurrentlyFiring: 0
   friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: 924eb367357b1fd468a40cffafafdd0b,
     type: 3}
@@ -1063,6 +1022,7 @@ MonoBehaviour:
   potionCount: 0
   keyCount: 0
   isFiring: 0
+  isCurrentlyFiring: 0
   friendlyFire: 0
   projectile: {fileID: 4236329797036561056, guid: cdb86ebd2baaf5b44a4c95abdc199dfe,
     type: 3}
