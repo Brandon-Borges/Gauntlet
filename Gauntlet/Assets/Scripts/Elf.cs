@@ -43,7 +43,7 @@ public class Elf : Player
 
         if (playerInputs.Elf.Shoot.ReadValue<float>() > .1f)
         {
-            StartCoroutine(shoot());
+            if (!isFiring) StartCoroutine(shoot());
         }
     }
 }

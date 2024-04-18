@@ -43,7 +43,7 @@ public class Wizard : Player
 
         if (playerInputs.Wizard.Shoot.ReadValue<float>() > .1f)
         {
-            StartCoroutine(shoot());
+            if (!isFiring) StartCoroutine(shoot());
         }
     }
 }

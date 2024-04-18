@@ -34,9 +34,9 @@ public class Player : MonoBehaviour
 
     public IEnumerator shoot()
     {
-        isFiring = false;
-        if (!isFiring) Instantiate(projectile, transform.position, projectile.transform.rotation);
+        Instantiate(projectile, transform.position, projectile.transform.rotation);
         isFiring = true;
         yield return new WaitForSeconds(fireSpeed);
+        isFiring = false;
     }
 }

@@ -42,7 +42,7 @@ public class Warrior : Player
         }
 
         if (playerInputs.Warrior.Shoot.ReadValue<float>() > .1f) {
-            StartCoroutine(shoot());
+            if (!isFiring) StartCoroutine(shoot());
         }
     }
 }

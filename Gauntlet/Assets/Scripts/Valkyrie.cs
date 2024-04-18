@@ -43,7 +43,7 @@ public class Valkyrie : Player
 
         if (playerInputs.Valkyrie.Shoot.ReadValue<float>() > .1f)
         {
-            StartCoroutine(shoot());
+            if (!isFiring) StartCoroutine(shoot());
         }
     }
 }
