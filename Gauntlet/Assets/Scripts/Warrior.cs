@@ -41,7 +41,7 @@ public class Warrior : Player
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
 
-        //while (shoot is pressed) {
+        //while (shoot is down) {
         //  StartCoroutine(shoot());
         //}
     }
