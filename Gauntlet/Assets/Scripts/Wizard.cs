@@ -24,7 +24,7 @@ public class Wizard : Player
     {
         Vector2 MoveVector = playerInputs.Wizard.Move.ReadValue<Vector2>();
 
-        if (!isFiring)
+        if (!isCurrentlyFiring)
         {
             if (MoveVector.x > 0)
             {
