@@ -24,7 +24,7 @@ public class Valkyrie : Player
     {
         Vector2 MoveVector = playerInputs.Valkyrie.Move.ReadValue<Vector2>();
 
-        if (!isFiring)
+        if (!isCurrentlyFiring)
         {
             if (MoveVector.x > 0)
             {

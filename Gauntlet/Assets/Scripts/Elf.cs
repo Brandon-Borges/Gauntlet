@@ -24,7 +24,7 @@ public class Elf : Player
     {
         Vector2 MoveVector = playerInputs.Elf.Move.ReadValue<Vector2>();
 
-        if (!isFiring)
+        if (!isCurrentlyFiring)
         {
             if (MoveVector.x > 0)
             {
