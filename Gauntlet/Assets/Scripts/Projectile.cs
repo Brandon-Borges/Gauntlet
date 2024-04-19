@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed;
+    public Vector3 forwardMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.forward * speed * Time.deltaTime;
+        transform.position += forwardMovement * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +30,6 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

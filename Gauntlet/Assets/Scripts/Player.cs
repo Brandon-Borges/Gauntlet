@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool isCurrentlyFiring;
     public bool friendlyFire;
     public GameObject projectile;
+    public Vector3 currentDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
     public IEnumerator shoot()
     {
         GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
-        bullet.transform.forward = this.transform.forward;
+        bullet.gameObject.GetComponent<Projectile>().forwardMovement = this.currentDirection;
         isFiring = true;
         yield return new WaitForSeconds(fireSpeed);
         isFiring = false;

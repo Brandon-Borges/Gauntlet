@@ -24,23 +24,36 @@ public class Wizard : Player
     {
         Vector2 MoveVector = playerInputs.Wizard.Move.ReadValue<Vector2>();
 
-        if (!isCurrentlyFiring)
+        if (MoveVector.x > 0)
         {
-            if (MoveVector.x > 0)
+            currentDirection = Vector3.right;
+            if (!isCurrentlyFiring)
             {
-                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection * moveSpeed * Time.deltaTime;
             }
-            if (MoveVector.x < 0)
+        }
+        if (MoveVector.x < 0)
+        {
+            currentDirection = Vector3.left;
+            if (!isCurrentlyFiring)
             {
-                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection * moveSpeed * Time.deltaTime;
             }
-            if (MoveVector.y > 0)
+        }
+        if (MoveVector.y > 0)
+        {
+            currentDirection = Vector3.forward;
+            if (!isCurrentlyFiring)
             {
-                transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection * moveSpeed * Time.deltaTime;
             }
-            if (MoveVector.y < 0)
+        }
+        if (MoveVector.y < 0)
+        {
+            currentDirection = Vector3.back;
+            if (!isCurrentlyFiring)
             {
-                transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection * moveSpeed * Time.deltaTime;
             }
         }
 
