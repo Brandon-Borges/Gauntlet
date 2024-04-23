@@ -56,4 +56,12 @@ public class Player : MonoBehaviour
             potionCount--;
         }
     }
+
+    public void insertCoin()
+    {
+        if (hp < 4500)
+        {
+            hp += 700;
+        }
+    }
 }
