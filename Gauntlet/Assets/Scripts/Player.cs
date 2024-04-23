@@ -48,4 +48,12 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(fireSpeed);
         isFiring = false;
     }
+
+    public void usePotion()
+    {
+        if (potionCount > 0)
+        {
+            potionCount--;
+        }
+    }
 }
