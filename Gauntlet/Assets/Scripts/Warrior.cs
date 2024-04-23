@@ -29,7 +29,7 @@ public class Warrior : Player
             currentDirection = Vector3.right;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
             }
         }
         if (MoveVector.x < 0)
@@ -37,7 +37,7 @@ public class Warrior : Player
             currentDirection = Vector3.left;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
             }
         }
         if (MoveVector.y > 0)
@@ -45,7 +45,7 @@ public class Warrior : Player
             currentDirection = Vector3.forward;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
             }
         }
         if (MoveVector.y < 0)
@@ -53,7 +53,7 @@ public class Warrior : Player
             currentDirection = Vector3.back;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection * moveSpeed * Time.deltaTime;
+                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
             }
         }
 
