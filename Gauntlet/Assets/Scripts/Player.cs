@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public bool friendlyFire;
     public GameObject projectile;
     public Vector3 currentDirection;
+    public bool coinSpamPrevent;
 
     // Start is called before the first frame update
     void Start()

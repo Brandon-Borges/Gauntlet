@@ -53,6 +53,15 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Coin"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba4a9967-990c-4654-950f-6fdd426d59ed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0905505f-511b-471b-8be9-258581e5e820"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
         m_Wizard_Move = m_Wizard.FindAction("Move", throwIfNotFound: true);
         m_Wizard_Shoot = m_Wizard.FindAction("Shoot", throwIfNotFound: true);
         m_Wizard_Potion = m_Wizard.FindAction("Potion", throwIfNotFound: true);
+        m_Wizard_Coin = m_Wizard.FindAction("Coin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Wizard_Move;
     private readonly InputAction m_Wizard_Shoot;
     private readonly InputAction m_Wizard_Potion;
+    private readonly InputAction m_Wizard_Coin;
     public struct WizardActions
     {
         private @WizardInputs m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Wizard_Move;
         public InputAction @Shoot => m_Wrapper.m_Wizard_Shoot;
         public InputAction @Potion => m_Wrapper.m_Wizard_Potion;
+        public InputAction @Coin => m_Wrapper.m_Wizard_Coin;
         public InputActionMap Get() { return m_Wrapper.m_Wizard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
             @Potion.started += instance.OnPotion;
             @Potion.performed += instance.OnPotion;
             @Potion.canceled += instance.OnPotion;
+            @Coin.started += instance.OnCoin;
+            @Coin.performed += instance.OnCoin;
+            @Coin.canceled += instance.OnCoin;
         }
 
         private void UnregisterCallbacks(IWizardActions instance)
@@ -245,6 +271,9 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
             @Potion.started -= instance.OnPotion;
             @Potion.performed -= instance.OnPotion;
             @Potion.canceled -= instance.OnPotion;
+            @Coin.started -= instance.OnCoin;
+            @Coin.performed -= instance.OnCoin;
+            @Coin.canceled -= instance.OnCoin;
         }
 
         public void RemoveCallbacks(IWizardActions instance)
@@ -267,5 +296,6 @@ public partial class @WizardInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnPotion(InputAction.CallbackContext context);
+        void OnCoin(InputAction.CallbackContext context);
     }
 }

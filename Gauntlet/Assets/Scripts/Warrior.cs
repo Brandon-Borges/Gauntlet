@@ -63,5 +63,18 @@ public class Warrior : Player
             if (!isFiring) StartCoroutine(shoot());
         }
         else Invoke("quickChange", 0.5f);
+
+        if (playerInputs.Warrior.Coin.ReadValue<float>() > .1f)
+        {
+            if (coinSpamPrevent == false)
+            {
+                insertCoin();
+                coinSpamPrevent = true;
+            }
+        }
+        else
+        {
+            coinSpamPrevent = false;
+        }
     }
 }

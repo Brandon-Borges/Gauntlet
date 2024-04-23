@@ -63,5 +63,18 @@ public class Elf : Player
             if (!isFiring) StartCoroutine(shoot());
         }
         else isCurrentlyFiring = false;
+
+        if (playerInputs.Elf.Coin.ReadValue<float>() > .1f)
+        {
+            if (coinSpamPrevent == false)
+            {
+                insertCoin();
+                coinSpamPrevent = true;
+            }
+        }
+        else
+        {
+            coinSpamPrevent = false;
+        }
     }
 }

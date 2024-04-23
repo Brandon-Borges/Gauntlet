@@ -63,5 +63,18 @@ public class Wizard : Player
             if (!isFiring) StartCoroutine(shoot());
         }
         else isCurrentlyFiring = false;
+
+        if (playerInputs.Wizard.Coin.ReadValue<float>() > .1f)
+        {
+            if (coinSpamPrevent == false)
+            {
+                insertCoin();
+                coinSpamPrevent = true;
+            }
+        }
+        else
+        {
+            coinSpamPrevent = false;
+        }
     }
 }

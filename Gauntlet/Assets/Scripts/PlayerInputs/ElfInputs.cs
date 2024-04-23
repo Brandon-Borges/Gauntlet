@@ -53,6 +53,15 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Coin"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e422d0c-1740-48be-bf56-bb5b32fe2f1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a32d64aa-82e7-4b56-aed2-426f479365eb"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
         m_Elf_Move = m_Elf.FindAction("Move", throwIfNotFound: true);
         m_Elf_Shoot = m_Elf.FindAction("Shoot", throwIfNotFound: true);
         m_Elf_Potion = m_Elf.FindAction("Potion", throwIfNotFound: true);
+        m_Elf_Coin = m_Elf.FindAction("Coin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Elf_Move;
     private readonly InputAction m_Elf_Shoot;
     private readonly InputAction m_Elf_Potion;
+    private readonly InputAction m_Elf_Coin;
     public struct ElfActions
     {
         private @ElfInputs m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Elf_Move;
         public InputAction @Shoot => m_Wrapper.m_Elf_Shoot;
         public InputAction @Potion => m_Wrapper.m_Elf_Potion;
+        public InputAction @Coin => m_Wrapper.m_Elf_Coin;
         public InputActionMap Get() { return m_Wrapper.m_Elf; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
             @Potion.started += instance.OnPotion;
             @Potion.performed += instance.OnPotion;
             @Potion.canceled += instance.OnPotion;
+            @Coin.started += instance.OnCoin;
+            @Coin.performed += instance.OnCoin;
+            @Coin.canceled += instance.OnCoin;
         }
 
         private void UnregisterCallbacks(IElfActions instance)
@@ -245,6 +271,9 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
             @Potion.started -= instance.OnPotion;
             @Potion.performed -= instance.OnPotion;
             @Potion.canceled -= instance.OnPotion;
+            @Coin.started -= instance.OnCoin;
+            @Coin.performed -= instance.OnCoin;
+            @Coin.canceled -= instance.OnCoin;
         }
 
         public void RemoveCallbacks(IElfActions instance)
@@ -267,5 +296,6 @@ public partial class @ElfInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnPotion(InputAction.CallbackContext context);
+        void OnCoin(InputAction.CallbackContext context);
     }
 }

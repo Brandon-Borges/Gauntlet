@@ -53,6 +53,15 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Coin"",
+                    ""type"": ""Button"",
+                    ""id"": ""041cb527-89d4-4a4b-b980-cce02bd3fea8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8004e999-20fe-436f-87a5-d9b64ee3324b"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
         m_Valkyrie_Move = m_Valkyrie.FindAction("Move", throwIfNotFound: true);
         m_Valkyrie_Shoot = m_Valkyrie.FindAction("Shoot", throwIfNotFound: true);
         m_Valkyrie_Potion = m_Valkyrie.FindAction("Potion", throwIfNotFound: true);
+        m_Valkyrie_Coin = m_Valkyrie.FindAction("Coin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Valkyrie_Move;
     private readonly InputAction m_Valkyrie_Shoot;
     private readonly InputAction m_Valkyrie_Potion;
+    private readonly InputAction m_Valkyrie_Coin;
     public struct ValkyrieActions
     {
         private @ValkyrieInputs m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Valkyrie_Move;
         public InputAction @Shoot => m_Wrapper.m_Valkyrie_Shoot;
         public InputAction @Potion => m_Wrapper.m_Valkyrie_Potion;
+        public InputAction @Coin => m_Wrapper.m_Valkyrie_Coin;
         public InputActionMap Get() { return m_Wrapper.m_Valkyrie; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
             @Potion.started += instance.OnPotion;
             @Potion.performed += instance.OnPotion;
             @Potion.canceled += instance.OnPotion;
+            @Coin.started += instance.OnCoin;
+            @Coin.performed += instance.OnCoin;
+            @Coin.canceled += instance.OnCoin;
         }
 
         private void UnregisterCallbacks(IValkyrieActions instance)
@@ -245,6 +271,9 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
             @Potion.started -= instance.OnPotion;
             @Potion.performed -= instance.OnPotion;
             @Potion.canceled -= instance.OnPotion;
+            @Coin.started -= instance.OnCoin;
+            @Coin.performed -= instance.OnCoin;
+            @Coin.canceled -= instance.OnCoin;
         }
 
         public void RemoveCallbacks(IValkyrieActions instance)
@@ -267,5 +296,6 @@ public partial class @ValkyrieInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnPotion(InputAction.CallbackContext context);
+        void OnCoin(InputAction.CallbackContext context);
     }
 }

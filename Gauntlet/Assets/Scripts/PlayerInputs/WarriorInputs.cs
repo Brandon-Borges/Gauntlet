@@ -53,6 +53,15 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Coin"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c1d4215-6f25-47e1-a2fe-5f9eaa56dd9d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99e4523a-c5ee-4cd7-bec6-3a32dc838992"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Coin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
         m_Warrior_Move = m_Warrior.FindAction("Move", throwIfNotFound: true);
         m_Warrior_Shoot = m_Warrior.FindAction("Shoot", throwIfNotFound: true);
         m_Warrior_Potion = m_Warrior.FindAction("Potion", throwIfNotFound: true);
+        m_Warrior_Coin = m_Warrior.FindAction("Coin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Warrior_Move;
     private readonly InputAction m_Warrior_Shoot;
     private readonly InputAction m_Warrior_Potion;
+    private readonly InputAction m_Warrior_Coin;
     public struct WarriorActions
     {
         private @WarriorInputs m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Warrior_Move;
         public InputAction @Shoot => m_Wrapper.m_Warrior_Shoot;
         public InputAction @Potion => m_Wrapper.m_Warrior_Potion;
+        public InputAction @Coin => m_Wrapper.m_Warrior_Coin;
         public InputActionMap Get() { return m_Wrapper.m_Warrior; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
             @Potion.started += instance.OnPotion;
             @Potion.performed += instance.OnPotion;
             @Potion.canceled += instance.OnPotion;
+            @Coin.started += instance.OnCoin;
+            @Coin.performed += instance.OnCoin;
+            @Coin.canceled += instance.OnCoin;
         }
 
         private void UnregisterCallbacks(IWarriorActions instance)
@@ -245,6 +271,9 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
             @Potion.started -= instance.OnPotion;
             @Potion.performed -= instance.OnPotion;
             @Potion.canceled -= instance.OnPotion;
+            @Coin.started -= instance.OnCoin;
+            @Coin.performed -= instance.OnCoin;
+            @Coin.canceled -= instance.OnCoin;
         }
 
         public void RemoveCallbacks(IWarriorActions instance)
@@ -267,5 +296,6 @@ public partial class @WarriorInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnPotion(InputAction.CallbackContext context);
+        void OnCoin(InputAction.CallbackContext context);
     }
 }
