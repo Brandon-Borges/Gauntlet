@@ -65,4 +65,25 @@ public class Player : MonoBehaviour
             hp += 700;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Key")
+        {
+            keyCount++;
+            Destroy(other.gameObject);
+        }
+        if (other.transform.tag == "Door")
+        {
+            if (keyCount > 0)
+            {
+                keyCount--;
+                //other.gameObject.GetComponent<Door>().unlock();
+            }
+        }
+        if (other.transform.tag == "Potion")
+        {
+            potionCount++;
+        }
+    }
 }

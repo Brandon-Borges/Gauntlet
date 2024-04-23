@@ -8,6 +8,7 @@ TagManager:
   - Valkyrie
   - Wizard
   - Elf
+  - Key
   layers:
   - Default
   - TransparentFX
