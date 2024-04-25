@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  fireSpeed: 3.5
+  fireSpeed: 1
   defense: 0.1
   hp: 3000
   score: 0
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  fireSpeed: 3
+  fireSpeed: 1.5
   defense: 0.3
   hp: 3000
   score: 0
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  fireSpeed: 3.5
+  fireSpeed: 1
   defense: 0
   hp: 3000
   score: 0
