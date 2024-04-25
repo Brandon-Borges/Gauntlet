@@ -88,6 +88,7 @@ public class Player : MonoBehaviour
         if (other.transform.tag == "Potion")
         {
             potionCount++;
+            Destroy(other.gameObject);
         }
     }
 }

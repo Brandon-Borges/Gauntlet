@@ -257,6 +257,7 @@ MonoBehaviour:
     type: 3}
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
+  potionSpamPrevent: 0
 --- !u!1 &235623163
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +436,7 @@ MonoBehaviour:
     type: 3}
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
+  potionSpamPrevent: 0
 --- !u!1 &387098048
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +721,7 @@ MonoBehaviour:
     type: 3}
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
+  potionSpamPrevent: 0
 --- !u!1 &1412008327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1037,7 @@ MonoBehaviour:
     type: 3}
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
+  potionSpamPrevent: 0
 --- !u!1 &1661016700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188998931672343942, guid: e319ebcad50f0ee41a25a0f762d1f994,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6189202519800894342, guid: e319ebcad50f0ee41a25a0f762d1f994,
         type: 3}
