@@ -29,6 +29,10 @@ public class Projectile : MonoBehaviour
                 //deal damage
             }
         }
+        if (other.transform.tag == "Food" && other.gameObject.GetComponent<Food>().breakable)
+        {
+            Destroy(other.gameObject);
+        }
 
         Destroy(this.gameObject);
     }

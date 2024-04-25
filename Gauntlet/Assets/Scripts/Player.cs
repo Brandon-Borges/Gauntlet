@@ -90,5 +90,11 @@ public class Player : MonoBehaviour
             potionCount++;
             Destroy(other.gameObject);
         }
+
+        if (other.transform.tag == "Food")
+        {
+            hp += other.gameObject.GetComponent<Food>().healthRestore;
+            Destroy(other.gameObject);
+        }
     }
 }
