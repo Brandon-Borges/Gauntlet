@@ -60,7 +60,7 @@ public class Wizard : Player
         if (playerInputs.Wizard.Shoot.ReadValue<float>() > .1f)
         {
             isCurrentlyFiring = true;
-            if (!isFiring) StartCoroutine(shoot());
+            if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
         else isCurrentlyFiring = false;
 

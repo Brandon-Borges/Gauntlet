@@ -60,7 +60,7 @@ public class Warrior : Player
         if (playerInputs.Warrior.Shoot.ReadValue<float>() > .1f)
         {
             isCurrentlyFiring = true;
-            if (!isFiring) StartCoroutine(shoot());
+            if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
         else Invoke("quickChange", 0.5f);
 

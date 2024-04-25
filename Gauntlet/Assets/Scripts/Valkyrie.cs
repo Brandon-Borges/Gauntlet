@@ -60,7 +60,7 @@ public class Valkyrie : Player
         if (playerInputs.Valkyrie.Shoot.ReadValue<float>() > .1f)
         {
             isCurrentlyFiring = true;
-            if (!isFiring) StartCoroutine(shoot());
+            if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
         else isCurrentlyFiring = false;
 

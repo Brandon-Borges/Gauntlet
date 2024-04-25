@@ -41,10 +41,34 @@ public class Player : MonoBehaviour
         isCurrentlyFiring = false;
     }
 
-    public IEnumerator shoot()
+    public IEnumerator shoot(Vector2 moveDir)
     {
+        Vector3 testForward = new Vector3(moveDir.x, 0, moveDir.y);
         GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
-        bullet.gameObject.GetComponent<Projectile>().forwardMovement = this.currentDirection;
+        /*
+        if (moveDir.x > 0 && moveDir.y > 0)
+        {
+            testForward = (Vector3.right + Vector3.forward);
+            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.right + Vector3.forward);
+        }
+        else if (moveDir.x < 0 && moveDir.y > 0)
+        {
+            testForward = (Vector3.left + Vector3.forward);
+            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.left + Vector3.forward);
+        }
+        if (moveDir.x > 0 && moveDir.y < 0)
+        {
+            testForward = (Vector3.right + Vector3.back);
+            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.right + Vector3.back);
+        }
+        else if (moveDir.x < 0 && moveDir.y < 0)
+        {
+            testForward = (Vector3.left + Vector3.back);
+            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.left + Vector3.back);
+        }
+        */
+        bullet.gameObject.GetComponent<Projectile>().forwardMovement = testForward;
+        //bullet.gameObject.GetComponent<Projectile>().forwardMovement = this.currentDirection;
         isFiring = true;
         yield return new WaitForSeconds(fireSpeed);
         isFiring = false;
