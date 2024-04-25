@@ -40,6 +40,11 @@ public class Projectile : MonoBehaviour
                 Destroy(other.gameObject);
             }
 
+            if (other.transform.tag == "Potion" && other.gameObject.GetComponent<Potion>().breakable)
+            {
+                other.gameObject.GetComponent<Potion>().shotPotion();
+            }
+
             Destroy(this.gameObject);
         }
     }
