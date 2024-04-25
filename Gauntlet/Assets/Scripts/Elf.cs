@@ -62,7 +62,7 @@ public class Elf : Player
             isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
-        else isCurrentlyFiring = false;
+        else Invoke("quickChange", 0.5f);
 
         if (playerInputs.Elf.Coin.ReadValue<float>() > .1f)
         {
@@ -75,6 +75,19 @@ public class Elf : Player
         else
         {
             coinSpamPrevent = false;
+        }
+
+        if (playerInputs.Elf.Potion.ReadValue<float>() > .1f)
+        {
+            if (potionSpamPrevent == false)
+            {
+                usePotion();
+                potionSpamPrevent = true;
+            }
+        }
+        else
+        {
+            potionSpamPrevent = false;
         }
     }
 }

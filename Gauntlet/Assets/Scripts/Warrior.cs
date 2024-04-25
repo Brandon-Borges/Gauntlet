@@ -76,5 +76,18 @@ public class Warrior : Player
         {
             coinSpamPrevent = false;
         }
+
+        if (playerInputs.Warrior.Potion.ReadValue<float>() > .1f)
+        {
+            if (potionSpamPrevent == false)
+            {
+                usePotion();
+                potionSpamPrevent = true;
+            }
+        }
+        else
+        {
+            potionSpamPrevent = false;
+        }
     }
 }

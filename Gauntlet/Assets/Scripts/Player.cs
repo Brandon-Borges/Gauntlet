@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject projectile;
     public Vector3 currentDirection;
     public bool coinSpamPrevent;
+    public bool potionSpamPrevent;
 
     // Start is called before the first frame update
     void Start()
@@ -43,32 +44,11 @@ public class Player : MonoBehaviour
 
     public IEnumerator shoot(Vector2 moveDir)
     {
-        Vector3 testForward = new Vector3(moveDir.x, 0, moveDir.y);
+        Vector3 testForward;
+        if (moveDir.x != 0 || moveDir.y != 0) testForward = new Vector3(moveDir.x, 0, moveDir.y);
+        else testForward = currentDirection;
         GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
-        /*
-        if (moveDir.x > 0 && moveDir.y > 0)
-        {
-            testForward = (Vector3.right + Vector3.forward);
-            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.right + Vector3.forward);
-        }
-        else if (moveDir.x < 0 && moveDir.y > 0)
-        {
-            testForward = (Vector3.left + Vector3.forward);
-            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.left + Vector3.forward);
-        }
-        if (moveDir.x > 0 && moveDir.y < 0)
-        {
-            testForward = (Vector3.right + Vector3.back);
-            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.right + Vector3.back);
-        }
-        else if (moveDir.x < 0 && moveDir.y < 0)
-        {
-            testForward = (Vector3.left + Vector3.back);
-            //bullet.gameObject.GetComponent<Projectile>().forwardMovement = (Vector3.left + Vector3.back);
-        }
-        */
         bullet.gameObject.GetComponent<Projectile>().forwardMovement = testForward;
-        //bullet.gameObject.GetComponent<Projectile>().forwardMovement = this.currentDirection;
         isFiring = true;
         yield return new WaitForSeconds(fireSpeed);
         isFiring = false;

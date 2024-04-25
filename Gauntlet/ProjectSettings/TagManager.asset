@@ -10,6 +10,7 @@ TagManager:
   - Elf
   - Key
   - Door
+  - Potion
   layers:
   - Default
   - TransparentFX
