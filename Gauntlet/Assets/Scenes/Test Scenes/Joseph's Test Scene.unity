@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  fireSpeed: 1
-  defense: 0
+  fireSpeed: 2
+  defense: 0.2
   hp: 3000
   score: 0
   potionCount: 0
@@ -455,9 +455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c949b1d2b86797459b9ff4001744ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  fireSpeed: 1
-  defense: 0
+  moveSpeed: 3
+  fireSpeed: 3.5
+  defense: 0.1
   hp: 3000
   score: 0
   potionCount: 0
@@ -663,6 +663,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f6793208-dad0-4d2d-8d49-34cc4c7fcbd1
     m_ActionName: Valkyrie/Potion[/Keyboard/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 041cb527-89d4-4a4b-b980-cce02bd3fea8
+    m_ActionName: Valkyrie/Coin[/Keyboard/2]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Valkyrie
@@ -768,9 +772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436982c7745839d499c0dca3998ebc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  fireSpeed: 1
-  defense: 0
+  moveSpeed: 2
+  fireSpeed: 3
+  defense: 0.3
   hp: 3000
   score: 0
   potionCount: 0
@@ -1007,6 +1011,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a31cec85-f0aa-4fed-92f4-0c4d089afa92
     m_ActionName: Wizard/Potion[/Keyboard/o]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ba4a9967-990c-4654-950f-6fdd426d59ed
+    m_ActionName: Wizard/Coin[/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Wizard
@@ -1113,7 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  fireSpeed: 1
+  fireSpeed: 3.5
   defense: 0
   hp: 3000
   score: 0

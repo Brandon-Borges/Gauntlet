@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position += forwardMovement * speed * Time.deltaTime;
+        if (forwardMovement == new Vector3(0, 0, 0)) Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

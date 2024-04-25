@@ -23,9 +23,9 @@ public class Potion : MonoBehaviour
         //logic to clear on-screen enemies
     }
     
-    public void shotPotion()
+    public void shotPotion(string tag)
     {
-        usePotion("Warrior");
+        usePotion("weak " + tag);
         Destroy(this.gameObject);
     }
 }

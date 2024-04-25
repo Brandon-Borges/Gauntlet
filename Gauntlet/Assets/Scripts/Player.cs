@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed;
     public float fireSpeed;
-    public int defense;
+    [Tooltip("Enter a value between 0 and 1 to determine the percentage of damage reduced by the hero.")]
+    public float defense;
     public int hp;
     public int score;
     public int potionCount;
