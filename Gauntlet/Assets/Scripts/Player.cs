@@ -19,11 +19,12 @@ public class Player : MonoBehaviour
     public Vector3 currentDirection;
     public bool coinSpamPrevent;
     public bool potionSpamPrevent;
+    private GameObject referencePotion;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        referencePotion = GameObject.FindGameObjectWithTag("PotionRef");
     }
 
     // Update is called once per frame
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour
         }
         if (other.transform.tag == "Potion")
         {
+            referencePotion.GetComponent<Potion>().usePotion(this.gameObject.transform.tag);
             potionCount++;
             Destroy(other.gameObject);
         }
