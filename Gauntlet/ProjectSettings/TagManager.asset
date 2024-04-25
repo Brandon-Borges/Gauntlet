@@ -12,6 +12,7 @@ TagManager:
   - Door
   - Potion
   - Food
+  - Treasure
   layers:
   - Default
   - TransparentFX

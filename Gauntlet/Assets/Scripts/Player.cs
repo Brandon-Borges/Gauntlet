@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
         if (moveDir.x != 0 || moveDir.y != 0) testForward = new Vector3(moveDir.x, 0, moveDir.y);
         else testForward = currentDirection;
         GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
+        bullet.gameObject.GetComponent<Projectile>().assignShooter(this.gameObject.transform.tag);
         bullet.gameObject.GetComponent<Projectile>().forwardMovement = testForward;
         isFiring = true;
         yield return new WaitForSeconds(fireSpeed);
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
 
     public void insertCoin()
     {
-        if (hp < 4500)
+        if (hp < 3500)
         {
             hp += 700;
         }
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
     {
         if (other.transform.tag == "Key")
         {
+            score += 100;
             keyCount++;
             Destroy(other.gameObject);
         }
@@ -94,6 +96,11 @@ public class Player : MonoBehaviour
         if (other.transform.tag == "Food")
         {
             hp += other.gameObject.GetComponent<Food>().healthRestore;
+            Destroy(other.gameObject);
+        }
+        if (other.transform.tag == "Treasure")
+        {
+            score += 100;
             Destroy(other.gameObject);
         }
     }

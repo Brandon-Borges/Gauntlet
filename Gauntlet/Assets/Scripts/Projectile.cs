@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     public Vector3 forwardMovement;
+    public string playerTag;
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +22,29 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Warrior" || other.transform.tag == "Valkyrie" ||
+        if (other.transform.tag != playerTag)
+        {
+            if (other.transform.tag == "Warrior" || other.transform.tag == "Valkyrie" ||
             other.transform.tag == "Wizard" || other.transform.tag == "Elf")
-        {
-            if (other.gameObject.GetComponent<Player>().friendlyFire == true)
             {
-                //deal damage
+                if (other.transform.tag != playerTag)
+                {
+                    if (other.gameObject.GetComponent<Player>().friendlyFire == true)
+                    {
+                        //deal damage
+                    }
+                }
             }
-        }
-        if (other.transform.tag == "Food" && other.gameObject.GetComponent<Food>().breakable)
-        {
-            Destroy(other.gameObject);
-        }
+            if (other.transform.tag == "Food" && other.gameObject.GetComponent<Food>().breakable)
+            {
+                Destroy(other.gameObject);
+            }
 
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
+    public void assignShooter(string tag)
+    {
+        playerTag = tag;
     }
 }
