@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
 
             if (other.transform.tag == "Potion" && other.gameObject.GetComponent<Potion>().breakable)
             {
-                other.gameObject.GetComponent<Potion>().shotPotion();
+                other.gameObject.GetComponent<Potion>().shotPotion(playerTag);
             }
 
             Destroy(this.gameObject);
