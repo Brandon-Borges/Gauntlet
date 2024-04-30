@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         referencePotion = GameObject.FindGameObjectWithTag("PotionRef");
-        currentDirection = Vector3.back;
+        currentDirection = new Vector3(0, 0, -1);
     }
 
     // Update is called once per frame
