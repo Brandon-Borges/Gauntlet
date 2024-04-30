@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 854481730211804040}
   - component: {fileID: -942853904522434730}
   m_Layer: 0
-  m_Name: Potion
+  m_Name: Indestructible Potion
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76530b52c36d3b747bb4cbf5e068436c, type: 2}
+  - {fileID: 2100000, guid: 090eb100887bcab4f86a3ed945b0ca26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,4 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e732ad56c8121344aa9f2ab351b407d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakable: 1
+  breakable: 0
