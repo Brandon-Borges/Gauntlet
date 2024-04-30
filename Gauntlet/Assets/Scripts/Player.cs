@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         if (potionCount > 0)
         {
             potionCount--;
+            referencePotion.GetComponent<Potion>().usePotion(this.gameObject.transform.tag);
         }
     }
 
@@ -91,7 +92,6 @@ public class Player : MonoBehaviour
         }
         if (other.transform.tag == "Potion")
         {
-            referencePotion.GetComponent<Potion>().usePotion(this.gameObject.transform.tag);
             potionCount++;
             Destroy(other.gameObject);
         }
@@ -104,6 +104,11 @@ public class Player : MonoBehaviour
         if (other.transform.tag == "Treasure")
         {
             score += 100;
+            Destroy(other.gameObject);
+        }
+        if (other.transform.tag == "Jewels")
+        {
+            score += 500;
             Destroy(other.gameObject);
         }
     }
