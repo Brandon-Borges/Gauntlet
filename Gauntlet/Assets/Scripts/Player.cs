@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float defense;
     public int hp;
     public int score;
+    public int projectileDamage;
     public int potionCount;
     public int keyCount;
 

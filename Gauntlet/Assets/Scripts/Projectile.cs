@@ -7,11 +7,12 @@ public class Projectile : MonoBehaviour
     public float speed;
     public Vector3 forwardMovement;
     public string playerTag;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag(playerTag);
     }
 
     // Update is called once per frame
@@ -44,6 +45,11 @@ public class Projectile : MonoBehaviour
             if (other.transform.tag == "Potion" && other.gameObject.GetComponent<Potion>().breakable)
             {
                 other.gameObject.GetComponent<Potion>().shotPotion(playerTag);
+            }
+
+            if (other.transform.tag == "Ghost")
+            {
+                other.gameObject.GetComponent<Ghost>().health -= player.GetComponent<Player>().projectileDamage;
             }
 
             Destroy(this.gameObject);

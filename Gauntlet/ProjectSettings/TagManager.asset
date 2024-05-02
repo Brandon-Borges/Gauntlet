@@ -15,6 +15,7 @@ TagManager:
   - Treasure
   - PotionRef
   - Jewels
+  - Ghost
   layers:
   - Default
   - TransparentFX
