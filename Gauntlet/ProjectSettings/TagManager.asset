@@ -16,6 +16,7 @@ TagManager:
   - PotionRef
   - Jewels
   - Ghost
+  - Generator
   layers:
   - Default
   - TransparentFX

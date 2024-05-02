@@ -121,6 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3b8d0041a7805418b7022041379f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootScore: 10
+  potionScore: 10
+  fightScore: 0
+  isFightable: 0
   levels:
   - {fileID: 2100000, guid: e5e7b7d806f4217498f0d02b2f77b4bc, type: 2}
   - {fileID: 2100000, guid: 2ef80146ed457ed458df47f0eaae375a, type: 2}
