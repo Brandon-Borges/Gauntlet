@@ -25,4 +25,30 @@ public class Ghost : MonoBehaviour
             GetComponent<Renderer>().material = levels[health - 1];
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Warrior" || other.transform.tag == "Valkyrie" ||
+            other.transform.tag == "Wizard" || other.transform.tag == "Elf")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void DamageHero(GameObject player)
+    {
+        if (health == 3)
+        {
+            player.GetComponent<Player>().hp -= 30;
+        }
+        else if (health == 2)
+        {
+            player.GetComponent<Player>().hp -= 20;
+        }
+        else if (health == 1)
+        {
+            player.GetComponent<Player>().hp -= 10;
+        }
+        Destroy(this.gameObject);
+    }
 }

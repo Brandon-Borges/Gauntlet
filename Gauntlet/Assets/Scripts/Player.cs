@@ -113,5 +113,9 @@ public class Player : MonoBehaviour
             score += 500;
             Destroy(other.gameObject);
         }
+        if (other.transform.tag == "Ghost")
+        {
+            other.gameObject.GetComponent<Ghost>().DamageHero(this.gameObject);
+        }
     }
 }
