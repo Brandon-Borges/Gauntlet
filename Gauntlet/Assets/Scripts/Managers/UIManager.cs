@@ -20,6 +20,11 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private TMP_Text LevelText;
 	public UIManager Instance;
 
+	//Naration Text variables
+	public TextMeshProUGUI textComponent;
+	public string[] GeneralMessages;
+	public string[] LowLifeMessages;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -28,7 +33,9 @@ public class UIManager : MonoBehaviour
 		Destroy(gameObject);
 		else
 		{ Instance= this; }
-    }
+		textComponent.text = string.Empty;
+		InvokeRepeating("NextMessage", 30f, 30f);
+	}
 
 	public void updateHealthText(int playerNum, int health)
 	{
@@ -46,6 +53,11 @@ public class UIManager : MonoBehaviour
 			case 4:
 				P4healthText.text = health.ToString();
 				break;
+		}
+		if(health <= 200)
+		{
+			textComponent.text = LowLifeMessages[playerNum];
+			RemoveText();
 		}
 
 	}
@@ -72,5 +84,16 @@ public class UIManager : MonoBehaviour
 		LevelText.text = level.ToString();
 	}
 
-  
+	private void NextMessage()
+	{
+		int nextMessage = Random.Range(0,GeneralMessages.Length+1);
+		textComponent.text = GeneralMessages[nextMessage];
+		RemoveText();
+	}
+	private IEnumerator RemoveText()
+	{
+		yield return new WaitForSeconds(5f);
+		textComponent.text = string.Empty;
+	}
+
 }
