@@ -16,7 +16,7 @@ public class Ghost : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(this.gameObject);
         }

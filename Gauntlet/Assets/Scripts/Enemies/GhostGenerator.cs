@@ -25,7 +25,7 @@ public class GhostGenerator : Generator
         {
             this.gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
-        else if (health == 0)
+        else if (health <= 0)
         {
             Destroy(this.gameObject);
         }
