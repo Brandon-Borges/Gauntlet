@@ -1297,6 +1297,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 2630936395578977881, guid: 6f5c82c5cc14c904697631c44d05355f,
+        type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1364,6 +1369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GhostGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124130052959840299, guid: e92daf5fb7999f4418db3db2dad1e19d,
+        type: 3}
+      propertyPath: spawnRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6302429577175242053, guid: e92daf5fb7999f4418db3db2dad1e19d,
         type: 3}

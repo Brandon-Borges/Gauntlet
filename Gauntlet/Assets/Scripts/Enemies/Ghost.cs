@@ -5,7 +5,6 @@ using UnityEngine;
 public class Ghost : Enemy
 {
     public List<Material> levels;
-    public int health;
 
     // Start is called before the first frame update
     void Start()

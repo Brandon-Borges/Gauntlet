@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int potionScore;
     public int fightScore;
     public bool isFightable;
+    public int health;
 
     private GameObject warrior;
     private GameObject valkyrie;
