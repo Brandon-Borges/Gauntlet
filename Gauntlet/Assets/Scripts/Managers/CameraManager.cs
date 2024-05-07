@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraManager : MonoBehaviour
 {
 
@@ -11,7 +12,8 @@ public class CameraManager : MonoBehaviour
 
     private float cameraX;
     private float cameraZ;
-    private Vector3 cameraPos;
+    public Vector3 cameraPos;
+    public Grid grid;
 
     public List<GameObject> players = new List<GameObject>();
   
@@ -19,6 +21,8 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
         Move();
+        
+        
     }
 
     private void Move()

@@ -29,35 +29,36 @@ public class UIManager : MonoBehaviour
 	void Start()
     {
 		//checks scene to make sure only one is present, if not then makes it a singleton
-        if(FindAnyObjectByType<UIManager>())
-		Destroy(gameObject);
-		else
+		
+		
+		
 		{ Instance= this; }
 		textComponent.text = string.Empty;
-		InvokeRepeating("NextMessage", 30f, 30f);
+		InvokeRepeating("NextMessage", 5f, 30f);
+		InvokeRepeating("RemoveText", 10f, 30f);
 	}
 
 	public void updateHealthText(int playerNum, int health)
 	{
 		switch(playerNum)
 		{
-			case 1:
+			case 0:
 				P1healthText.text = health.ToString();
 				break;
-			case 2:
+			case 1:
 				P2healthText.text = health.ToString();
 				break;
-			case 3:
+			case 2:
 				P3healthText.text = health.ToString();
 				break;
-			case 4:
+			case 3:
 				P4healthText.text = health.ToString();
 				break;
 		}
 		if(health <= 200)
 		{
 			textComponent.text = LowLifeMessages[playerNum];
-			RemoveText();
+			
 		}
 
 	}
@@ -65,16 +66,16 @@ public class UIManager : MonoBehaviour
 	{
 		switch (playerNum)
 		{
-			case 1:
+			case 0:
 				P1ScoreText.text = score.ToString();
 				break;
-			case 2:
+			case 1:
 				P2ScoreText.text = score.ToString();
 				break;
-			case 3:
+			case 2:
 				P3ScoreText.text = score.ToString();
 				break;
-			case 4:
+			case 3:
 				P4ScoreText.text = score.ToString();
 				break;
 		}
@@ -86,13 +87,11 @@ public class UIManager : MonoBehaviour
 
 	private void NextMessage()
 	{
-		int nextMessage = Random.Range(0,GeneralMessages.Length+1);
-		textComponent.text = GeneralMessages[nextMessage];
-		RemoveText();
+		int nextMessage = Random.Range(0,GeneralMessages.Length);
+		textComponent.text = GeneralMessages[nextMessage];	
 	}
-	private IEnumerator RemoveText()
+	private void RemoveText()
 	{
-		yield return new WaitForSeconds(5f);
 		textComponent.text = string.Empty;
 	}
 

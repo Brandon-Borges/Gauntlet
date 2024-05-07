@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int playersOnExit;
-    public int playerCount;
+    public List<GameObject> playerCount;
     private int nextScene=1;
 	
 
@@ -26,16 +26,13 @@ public class GameManager : MonoBehaviour
     }
     private void loadNextLevel()
     {
-        if(playersOnExit == playerCount)
+        if(playersOnExit == playerCount.Count)
         {
 			SceneManager.LoadScene(nextScene);
 			nextScene++;
 		}
      
     }
-    private void NextMessage()
-    {
 
-    }
 
 }
