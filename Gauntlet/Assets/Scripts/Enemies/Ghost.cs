@@ -10,7 +10,7 @@ public class Ghost : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        AssignHeroes();
     }
 
     // Update is called once per frame
@@ -23,6 +23,9 @@ public class Ghost : Enemy
         else
         {
             GetComponent<Renderer>().material = levels[health - 1];
+            FindClosest();
+
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.005f);
         }
     }
 
