@@ -25,14 +25,27 @@ public class Generator : MonoBehaviour
 
     public void setSpawnPos()
     {
-        xOffset = (Random.Range(0, 2)) * 2;
-        zOffset = (Random.Range(0, 2)) * 2;
-        if (xOffset == 0) xOffset = -2;
-        if (zOffset == 0) zOffset = -2;
+        xOffset = (Random.Range(-1, 2)) * 2;
+        zOffset = (Random.Range(-1, 2)) * 2;
+        if (xOffset == 0 && zOffset == 0)
+        {
+            int reassign = Random.Range(0, 2);
+            if (reassign == 0)
+            {
+                xOffset = (Random.Range(0, 2)) * 2;
+                if (xOffset == 0) xOffset = -2;
+            }
+            else {
+                zOffset = (Random.Range(0, 2)) * 2;
+                if (zOffset == 0) zOffset = -2;
+            }
+        }
     }
 
     public void spawnEnemy()
     {
-        Instantiate(enemyToSpawn, (transform.position + new Vector3(xOffset, 0, zOffset)), enemyToSpawn.transform.rotation);
+        if (enemyToSpawn != null)
+        Instantiate(enemyToSpawn, (transform.position + new Vector3(xOffset, 0, zOffset)), 
+            enemyToSpawn.transform.rotation);
     }
 }
