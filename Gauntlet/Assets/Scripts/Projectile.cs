@@ -60,6 +60,10 @@ public class Projectile : MonoBehaviour
                 other.gameObject.GetComponent<Generator>().health -= player.GetComponent<Player>().projectileDamage;
             }
 
+            if (playerTag == "Warrior") player.GetComponent<Warrior>().isFiring = false;
+            else if (playerTag == "Valkyrie") player.GetComponent<Valkyrie>().isFiring = false;
+            else if (playerTag == "Wizard") player.GetComponent<Wizard>().isFiring = false;
+            else if (playerTag == "Elf") player.GetComponent<Elf>().isFiring = false;
             Destroy(this.gameObject);
         }
     }
