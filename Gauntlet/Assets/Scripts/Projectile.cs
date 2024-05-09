@@ -51,7 +51,10 @@ public class Projectile : MonoBehaviour
             {
                 other.gameObject.GetComponent<Ghost>().health -= player.GetComponent<Player>().projectileDamage;
             }
-
+            if (other.transform.tag == "Grunt")
+            {
+                other.gameObject.GetComponent<Grunt>().health -= player.GetComponent<Player>().projectileDamage;
+            }
             if (other.transform.tag == "Generator")
             {
                 other.gameObject.GetComponent<Generator>().health -= player.GetComponent<Player>().projectileDamage;

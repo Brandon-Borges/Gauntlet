@@ -45,7 +45,7 @@ public class Grunt : Enemy
             damage = 5;
         }
 
-        if (Mathf.Approximately(targetsDist, 1f))
+        if (Mathf.Approximately(targetsDist, 1f) || targetsDist <= 1f)
         {
             speed = 0;
             if (!attacking) StartCoroutine(attackTarget());
@@ -60,7 +60,10 @@ public class Grunt : Enemy
     {
         attacking = true;
         //target's health goes down by "damage"
-        target.gameObject.GetComponent<Player>().hp -= damage;
+        if (target.gameObject == warrior) target.gameObject.GetComponent<Warrior>().hp -= damage;
+        else if (target.gameObject == valkyrie) target.gameObject.GetComponent<Valkyrie>().hp -= damage;
+        else if (target.gameObject == wizard) target.gameObject.GetComponent<Wizard>().hp -= damage;
+        else if (target.gameObject == elf) target.gameObject.GetComponent<Elf>().hp -= damage;
         yield return new WaitForSeconds(cooldown);
         attacking = false;
     }

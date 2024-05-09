@@ -10,10 +10,10 @@ public class Enemy : MonoBehaviour
     public bool isFightable;
     public int health;
 
-    private GameObject warrior;
-    private GameObject valkyrie;
-    private GameObject wizard;
-    private GameObject elf;
+    public GameObject warrior;
+    public GameObject valkyrie;
+    public GameObject wizard;
+    public GameObject elf;
 
     public Transform target;
     public float targetsDist;

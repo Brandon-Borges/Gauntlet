@@ -1360,6 +1360,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 2007540098863217643, guid: 6f5c82c5cc14c904697631c44d05355f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2630936395578977881, guid: 6f5c82c5cc14c904697631c44d05355f,
         type: 3}
       propertyPath: health
@@ -1455,6 +1460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GhostGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150167434588990688, guid: e92daf5fb7999f4418db3db2dad1e19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6124130052959840299, guid: e92daf5fb7999f4418db3db2dad1e19d,
         type: 3}
@@ -1606,6 +1616,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generator
       objectReference: {fileID: 0}
+    - target: {fileID: 4605413596831835874, guid: ec6173767a828f14f9b123cd37cb5c8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1651,6 +1666,10 @@ MonoBehaviour:
   fightScore: 25
   isFightable: 0
   health: 3
+  warrior: {fileID: 0}
+  valkyrie: {fileID: 0}
+  wizard: {fileID: 0}
+  elf: {fileID: 0}
   target: {fileID: 0}
   targetsDist: 0
   levels:
