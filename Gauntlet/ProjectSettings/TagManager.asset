@@ -17,6 +17,7 @@ TagManager:
   - Jewels
   - Ghost
   - Generator
+  - Grunt
   layers:
   - Default
   - TransparentFX

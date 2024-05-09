@@ -31,9 +31,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindClosest();
-
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 1);
+        
     }
 
     public void FindClosest()
