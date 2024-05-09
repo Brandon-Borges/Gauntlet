@@ -48,14 +48,21 @@ public class Player : MonoBehaviour
 
     public IEnumerator shoot(Vector2 moveDir)
     {
-        Vector3 testForward;
-        if (moveDir.x != 0 || moveDir.y != 0) testForward = new Vector3(moveDir.x, 0, moveDir.y);
-        else testForward = currentDirection;
-        GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
-        bullet.gameObject.GetComponent<Projectile>().assignShooter(this.gameObject.transform.tag);
-        bullet.gameObject.GetComponent<Projectile>().forwardMovement = testForward;
         isFiring = true;
-        yield return new WaitForSeconds(fireSpeed);
+        while (isFiring) 
+        {
+            Vector3 testForward;
+            if (moveDir.x != 0 || moveDir.y != 0) testForward = new Vector3(moveDir.x, 0, moveDir.y);
+            else testForward = currentDirection;
+            GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
+            bullet.gameObject.GetComponent<Projectile>().assignShooter(this.gameObject.transform.tag);
+            bullet.gameObject.GetComponent<Projectile>().forwardMovement = testForward;
+            Debug.Log("Player.shoot, isFiring is true, should be pausing");
+            yield return new WaitForSeconds(fireSpeed);
+            Debug.Log("Player.shoot, isFiring is false, it should have been some time for a pause");
+            //if (!isfiring) stop this function
+            //if (!isFiring) yield break;
+        }
         isFiring = false;
     }
 

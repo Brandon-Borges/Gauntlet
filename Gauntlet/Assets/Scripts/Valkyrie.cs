@@ -19,7 +19,7 @@ public class Valkyrie : Player
     // Update is called once per frame
     void Update()
     {
-        if (!isFiring) StopCoroutine(shoot(MoveVector));
+        //if (!isFiring) StopCoroutine(shoot(MoveVector));
     }
 
     public void FixedUpdate()
@@ -65,7 +65,11 @@ public class Valkyrie : Player
             isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
-        else Invoke("quickChange", 0.5f);
+        else
+        {
+            Invoke("quickChange", 0.5f);
+            isFiring = false;
+        }
 
         if (playerInputs.Valkyrie.Coin.ReadValue<float>() > .1f)
         {
