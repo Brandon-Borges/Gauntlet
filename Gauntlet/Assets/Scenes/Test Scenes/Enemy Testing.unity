@@ -326,6 +326,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!54 &504328394
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -628,6 +629,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!114 &1049935270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,6 +959,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!54 &1675365343
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1169,6 +1172,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!54 &1808303174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1525,6 +1529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072586282704169527, guid: 01fc7934ae37ac04fbb0063da5ad2324,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3797142905945917246, guid: 01fc7934ae37ac04fbb0063da5ad2324,
         type: 3}
