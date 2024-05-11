@@ -9,7 +9,7 @@ public class OtherGenerator : Generator
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("spawnEnemy", spawnRate, spawnRate);
     }
 
     // Update is called once per frame
@@ -23,5 +23,9 @@ public class OtherGenerator : Generator
         {
             GetComponent<Renderer>().material = levels[health - 1];
         }
+
+        enemyToSpawn.GetComponent<Enemy>().health = health;
+
+        setSpawnPos();
     }
 }

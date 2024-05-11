@@ -119,9 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479a782f2466b91459dcccc1e7ccbe64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyToSpawn: {fileID: 0}
+  enemyToSpawn: {fileID: 3072586282704169527, guid: 01fc7934ae37ac04fbb0063da5ad2324,
+    type: 3}
   health: 3
   score: 10
+  xOffset: 0
+  zOffset: 0
+  spawnRate: 0
   levels:
   - {fileID: 2100000, guid: ba66b83fe391a0a449ba2a13c02f1f18, type: 2}
   - {fileID: 2100000, guid: 0d5354ba71661d745acb5784e2f6c0ff, type: 2}
