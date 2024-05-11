@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public int shootScore;
     public int potionScore;
     public int fightScore;
-    public bool isFightable;
     public int health;
 
     public GameObject warrior;
