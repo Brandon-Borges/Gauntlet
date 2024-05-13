@@ -64,11 +64,7 @@ public class Warrior : Player
             isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
-        else
-        {
-            Invoke("quickChange", 0.5f);
-            isFiring = false;
-        }
+        else Invoke("quickChange", 0.5f);
 
         if (playerInputs.Warrior.Coin.ReadValue<float>() > .1f)
         {

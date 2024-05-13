@@ -65,11 +65,7 @@ public class Valkyrie : Player
             isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
-        else
-        {
-            Invoke("quickChange", 0.5f);
-            isFiring = false;
-        }
+        else Invoke("quickChange", 0.5f);
 
         if (playerInputs.Valkyrie.Coin.ReadValue<float>() > .1f)
         {

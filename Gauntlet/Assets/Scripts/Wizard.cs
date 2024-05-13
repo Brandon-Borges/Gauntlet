@@ -65,11 +65,7 @@ public class Wizard : Player
             isCurrentlyFiring = true;
             if (!isFiring) StartCoroutine(shoot(MoveVector));
         }
-        else
-        {
-            Invoke("quickChange", 0.5f);
-            isFiring = false;
-        }
+        else Invoke("quickChange", 0.5f);
 
         if (playerInputs.Wizard.Coin.ReadValue<float>() > .1f)
         {

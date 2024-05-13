@@ -326,6 +326,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
   MoveVector: {x: 0, y: 0}
 --- !u!54 &504328394
 Rigidbody:
@@ -629,6 +630,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
   MoveVector: {x: 0, y: 0}
 --- !u!114 &1049935270
 MonoBehaviour:
@@ -959,6 +961,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
   MoveVector: {x: 0, y: 0}
 --- !u!54 &1675365343
 Rigidbody:
@@ -1172,6 +1175,7 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
   MoveVector: {x: 0, y: 0}
 --- !u!54 &1808303174
 Rigidbody:
