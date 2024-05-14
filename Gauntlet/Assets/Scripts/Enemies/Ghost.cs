@@ -5,11 +5,14 @@ using UnityEngine;
 public class Ghost : Enemy
 {
     public List<Material> levels;
+    public float initSpeed;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
         AssignHeroes();
+        speed = initSpeed = 0.005f;
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class Ghost : Enemy
             GetComponent<Renderer>().material = levels[health - 1];
             FindClosest();
 
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.005f);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
         }
     }
 
@@ -45,20 +48,21 @@ public class Ghost : Enemy
                 {
                     if (other.gameObject.transform.position.z < this.transform.position.z)
                     {
-
+                        speed = 0;
                     }
                     else if (other.gameObject.transform.position.z > this.transform.position.z)
                     {
-
+                        speed = 0;
                     }
                     else if (other.gameObject.transform.position.x < this.transform.position.x)
                     {
-
+                        speed = 0;
                     }
                     else if (other.gameObject.transform.position.x > this.transform.position.x)
                     {
-
+                        speed = 0;
                     }
+                    else speed = initSpeed;
                 }
             }
         }
