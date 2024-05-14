@@ -35,6 +35,14 @@ public class Ghost : Enemy
         {
             Destroy(this.gameObject);
         }
+
+        if (other.transform.tag == "Door")
+        {
+            for (int i = 0; i <= GameObject.FindGameObjectsWithTag("Door").Length; i++)
+            {
+                //if (other.gameObject == )
+            }
+        }
     }
 
     public void DamageHero(GameObject player)
