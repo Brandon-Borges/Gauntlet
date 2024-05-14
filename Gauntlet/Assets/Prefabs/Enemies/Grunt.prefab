@@ -151,7 +151,6 @@ MonoBehaviour:
   shootScore: 5
   potionScore: 10
   fightScore: 25
-  isFightable: 1
   health: 3
   warrior: {fileID: 0}
   valkyrie: {fileID: 0}
@@ -164,6 +163,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c8dfa6bfdb287fa438bba9c599993c2a, type: 2}
   - {fileID: 2100000, guid: 4da5c3d29bfa9b54c940ce604a7a37ac, type: 2}
   damage: 0
+  initSpeed: 0.005
   speed: 0
   attacking: 0
   cooldown: 0.4

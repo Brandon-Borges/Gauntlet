@@ -12,7 +12,7 @@ public class Ghost : Enemy
     void Start()
     {
         AssignHeroes();
-        speed = initSpeed = 0.005f;
+        speed = initSpeed;
     }
 
     // Update is called once per frame
@@ -49,18 +49,22 @@ public class Ghost : Enemy
                     if (other.gameObject.transform.position.z < this.transform.position.z)
                     {
                         speed = 0;
+                        break;
                     }
                     else if (other.gameObject.transform.position.z > this.transform.position.z)
                     {
                         speed = 0;
+                        break;
                     }
                     else if (other.gameObject.transform.position.x < this.transform.position.x)
                     {
                         speed = 0;
+                        break;
                     }
                     else if (other.gameObject.transform.position.x > this.transform.position.x)
                     {
                         speed = 0;
+                        break;
                     }
                     else speed = initSpeed;
                 }

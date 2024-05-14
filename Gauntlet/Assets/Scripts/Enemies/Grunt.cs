@@ -6,6 +6,7 @@ public class Grunt : Enemy
 {
     public List<Material> levels;
     public int damage;
+    public float initSpeed;
     public float speed;
     public bool attacking;
     public float cooldown = 0.4f;
@@ -15,6 +16,7 @@ public class Grunt : Enemy
     {
         AssignHeroes();
         attacking = false;
+        speed = initSpeed;
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class Grunt : Enemy
         }
         else
         {
-            speed = 0.005f;
+            speed = initSpeed;
         }
     }
 

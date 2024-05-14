@@ -124,12 +124,19 @@ MonoBehaviour:
   shootScore: 10
   potionScore: 10
   fightScore: 0
-  isFightable: 0
+  health: 3
+  warrior: {fileID: 0}
+  valkyrie: {fileID: 0}
+  wizard: {fileID: 0}
+  elf: {fileID: 0}
+  target: {fileID: 0}
+  targetsDist: 0
   levels:
   - {fileID: 2100000, guid: e5e7b7d806f4217498f0d02b2f77b4bc, type: 2}
   - {fileID: 2100000, guid: 2ef80146ed457ed458df47f0eaae375a, type: 2}
   - {fileID: 2100000, guid: b6d6e668afbfec54baa89a4a536e00c8, type: 2}
-  health: 2
+  initSpeed: 0.005
+  speed: 0
 --- !u!54 &4374829934739027364
 Rigidbody:
   m_ObjectHideFlags: 0
