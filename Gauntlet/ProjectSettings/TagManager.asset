@@ -18,6 +18,7 @@ TagManager:
   - Ghost
   - Generator
   - Grunt
+  - Wall
   layers:
   - Default
   - TransparentFX
