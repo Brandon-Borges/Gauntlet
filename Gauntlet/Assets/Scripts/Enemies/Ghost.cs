@@ -40,7 +40,7 @@ public class Ghost : Enemy
         {
             for (int i = 0; i <= GameObject.FindGameObjectsWithTag("Door").Length; i++)
             {
-                //if (other.gameObject == )
+                //if (other.gameObject == i's gameObject)
             }
         }
     }
