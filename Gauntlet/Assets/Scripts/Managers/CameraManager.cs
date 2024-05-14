@@ -31,6 +31,7 @@ public class CameraManager : MonoBehaviour
 
     private void Move()
     {
+        int activePlayers = 0;
         //Resets temp variables to 0
         playersTotalXpos = 0;
         playersTotalZpos = 0;
@@ -38,12 +39,17 @@ public class CameraManager : MonoBehaviour
         //Collects all players position data
 		foreach (GameObject player in players)
 		{
-			playersTotalXpos += player.transform.position.x;
-			playersTotalZpos += player.transform.position.z;
+            if(player.activeSelf)
+            {
+				playersTotalXpos += player.transform.position.x;
+				playersTotalZpos += player.transform.position.z;
+                activePlayers++;
+			}
+			
 		}
         //Calculates the center points and positions the camera
-		cameraX = playersTotalXpos / players.Count;
-		cameraZ = playersTotalZpos / players.Count;
+		cameraX = playersTotalXpos / activePlayers;
+		cameraZ = playersTotalZpos / activePlayers;
 		cameraPos = new Vector3(cameraX, 5, cameraZ);
 		this.transform.position = cameraPos;
 	}

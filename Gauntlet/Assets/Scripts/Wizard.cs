@@ -107,6 +107,7 @@ public class Wizard : Player
 				}
 
 			}
+		}
 
 			if (playerInputs.Wizard.Shoot.ReadValue<float>() > .1f)
 			{
@@ -140,7 +141,7 @@ public class Wizard : Player
 			{
 				potionSpamPrevent = false;
 			}
-		}
+		
 	}
 		void UpdateInfo()
 		{

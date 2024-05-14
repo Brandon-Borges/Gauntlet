@@ -24,8 +24,24 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-       
-    }
+       if(Input.GetKeyDown(KeyCode.Keypad1))
+		{
+			playerCount[0].gameObject.SetActive(true);
+		}
+		if (Input.GetKeyDown(KeyCode.Keypad2))
+		{
+			playerCount[1].gameObject.SetActive(true);
+		}
+		if (Input.GetKeyDown(KeyCode.Keypad3))
+		{
+			playerCount[2].gameObject.SetActive(true);
+		}
+		if (Input.GetKeyDown(KeyCode.Keypad4))
+		{
+			playerCount[3].gameObject.SetActive(true);
+		}
+
+	}
     private void loadNextLevel()
     {
         if(playersOnExit == playerCount.Count)

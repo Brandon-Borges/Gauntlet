@@ -105,6 +105,7 @@ public class Warrior : Player
 				}
 
 			}
+		}
 
 			if (playerInputs.Warrior.Shoot.ReadValue<float>() > .1f)
 			{
@@ -138,7 +139,7 @@ public class Warrior : Player
 			{
 				potionSpamPrevent = false;
 			}
-		}
+		
 	}
 		void UpdateInfo()
 		{
