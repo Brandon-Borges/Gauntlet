@@ -13,7 +13,8 @@ public class Wizard : Player
         playerInputs = new WizardInputs();
         playerInputs.Enable();
         InvokeRepeating("healthDrain", 1f, 1f);
-        currentDirection = new Vector3(0, 0, -1);
+		InvokeRepeating("UpdateInfo", 1f, 1f);
+		currentDirection = new Vector3(0, 0, -1);
     }
 
     // Update is called once per frame
@@ -22,75 +23,130 @@ public class Wizard : Player
         //if (!isFiring) StopCoroutine(shoot(MoveVector));
     }
 
-    public void FixedUpdate()
-    {
-        MoveVector = playerInputs.Wizard.Move.ReadValue<Vector2>();
+	public void FixedUpdate()
+	{
+		MoveVector = playerInputs.Wizard.Move.ReadValue<Vector2>();
 
 
-        if (MoveVector.x > 0)
-        {
-            currentDirection = Vector3.right;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
-        if (MoveVector.x < 0)
-        {
-            currentDirection = Vector3.left;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
-        if (MoveVector.y > 0)
-        {
-            currentDirection = Vector3.forward;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
-        if (MoveVector.y < 0)
-        {
-            currentDirection = Vector3.back;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
+		if (MoveVector.x > 0)
+		{
+			currentDirection = Vector3.right;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.right, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
 
-        if (playerInputs.Wizard.Shoot.ReadValue<float>() > .1f)
-        {
-            isCurrentlyFiring = true;
-            if (!isFiring) StartCoroutine(shoot(MoveVector));
-        }
-        else Invoke("quickChange", 0.5f);
+				//transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+			}
+		}
+		if (MoveVector.x < 0)
+		{
+			currentDirection = Vector3.left;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.left, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
 
-        if (playerInputs.Wizard.Coin.ReadValue<float>() > .1f)
-        {
-            if (coinSpamPrevent == false)
-            {
-                insertCoin();
-                coinSpamPrevent = true;
-            }
-        }
-        else
-        {
-            coinSpamPrevent = false;
-        }
+			}
+		}
+		if (MoveVector.y > 0)
+		{
+			currentDirection = Vector3.forward;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.forward, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
+			}
+		}
+		if (MoveVector.y < 0)
+		{
+			currentDirection = Vector3.back;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.back, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
 
-        if (playerInputs.Wizard.Potion.ReadValue<float>() > .1f)
-        {
-            if (potionSpamPrevent == false)
-            {
-                usePotion();
-                potionSpamPrevent = true;
-            }
-        }
-        else
-        {
-            potionSpamPrevent = false;
-        }
-    }
+			}
+
+			if (playerInputs.Wizard.Shoot.ReadValue<float>() > .1f)
+			{
+				isCurrentlyFiring = true;
+				if (!isFiring) StartCoroutine(shoot(MoveVector));
+			}
+			else Invoke("quickChange", 0.5f);
+
+			if (playerInputs.Wizard.Coin.ReadValue<float>() > .1f)
+			{
+				if (coinSpamPrevent == false)
+				{
+					insertCoin();
+					coinSpamPrevent = true;
+				}
+			}
+			else
+			{
+				coinSpamPrevent = false;
+			}
+
+			if (playerInputs.Wizard.Potion.ReadValue<float>() > .1f)
+			{
+				if (potionSpamPrevent == false)
+				{
+					usePotion();
+					potionSpamPrevent = true;
+				}
+			}
+			else
+			{
+				potionSpamPrevent = false;
+			}
+		}
+	}
+		void UpdateInfo()
+		{
+			UIManager.Instance.updateHealthText(2, hp);
+			UIManager.Instance.updateScoreText(2, score);
+
+		}
+	
 }

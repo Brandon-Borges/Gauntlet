@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private TMP_Text P4healthText;
 
 	[SerializeField] private TMP_Text LevelText;
-	public UIManager Instance;
+	public static UIManager Instance;
 
 	//Naration Text variables
 	public TextMeshProUGUI textComponent;

@@ -13,7 +13,8 @@ public class Valkyrie : Player
         playerInputs = new ValkyrieInputs();
         playerInputs.Enable();
         InvokeRepeating("healthDrain", 1f, 1f);
-        currentDirection = new Vector3(0, 0, -1);
+		InvokeRepeating("UpdateInfo", 1f, 1f);
+		currentDirection = new Vector3(0, 0, -1);
     }
 
     // Update is called once per frame
@@ -27,38 +28,86 @@ public class Valkyrie : Player
         MoveVector = playerInputs.Valkyrie.Move.ReadValue<Vector2>();
 
 
-        if (MoveVector.x > 0)
-        {
-            currentDirection = Vector3.right;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
-        if (MoveVector.x < 0)
-        {
-            currentDirection = Vector3.left;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
-        if (MoveVector.y > 0)
-        {
-            currentDirection = Vector3.forward;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
-        if (MoveVector.y < 0)
-        {
-            currentDirection = Vector3.back;
-            if (!isCurrentlyFiring)
-            {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
-            }
-        }
+		if (MoveVector.x > 0)
+		{
+			currentDirection = Vector3.right;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.right, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
+
+				//transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+			}
+		}
+		if (MoveVector.x < 0)
+		{
+			currentDirection = Vector3.left;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.left, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
+
+			}
+		}
+		if (MoveVector.y > 0)
+		{
+			currentDirection = Vector3.forward;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.forward, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
+			}
+		}
+		if (MoveVector.y < 0)
+		{
+			currentDirection = Vector3.back;
+			if (!isCurrentlyFiring)
+			{
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.back, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
+
+			}
+		}
 
         if (playerInputs.Valkyrie.Shoot.ReadValue<float>() > .1f)
         {
@@ -93,4 +142,10 @@ public class Valkyrie : Player
             potionSpamPrevent = false;
         }
     }
+	void UpdateInfo()
+	{
+		UIManager.Instance.updateHealthText(1, hp);
+		UIManager.Instance.updateScoreText(1, score);
+
+	}
 }

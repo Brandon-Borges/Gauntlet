@@ -13,12 +13,16 @@ public class CameraManager : MonoBehaviour
     private float cameraX;
     private float cameraZ;
     public Vector3 cameraPos;
-    
+    public static CameraManager Instance;
 
     public List<GameObject> players = new List<GameObject>();
-  
-    // Update is called once per frame
-    void Update()
+
+	private void Awake()
+	{
+        Instance = this;
+	}
+	// Update is called once per frame
+	void Update()
     {
         Move();
         

@@ -13,6 +13,7 @@ public class Elf : Player
         playerInputs = new ElfInputs();
         playerInputs.Enable();
         InvokeRepeating("healthDrain", 1f, 1f);
+        InvokeRepeating("UpdateInfo",1f,1f);
         currentDirection = new Vector3(0, 0, -1);
     }
 
@@ -32,7 +33,20 @@ public class Elf : Player
             currentDirection = Vector3.right;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position,Vector3.right,out hit))
+                {
+                    if(hit.rigidbody.tag == "Wall" && hit.distance<=.5)
+                    {
+                        return;
+                    }
+                    else
+                    {
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+                }
+                
+                //transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
             }
         }
         if (MoveVector.x < 0)
@@ -40,7 +54,19 @@ public class Elf : Player
             currentDirection = Vector3.left;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.left, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
+				
             }
         }
         if (MoveVector.y > 0)
@@ -48,7 +74,18 @@ public class Elf : Player
             currentDirection = Vector3.forward;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.forward, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
             }
         }
         if (MoveVector.y < 0)
@@ -56,7 +93,19 @@ public class Elf : Player
             currentDirection = Vector3.back;
             if (!isCurrentlyFiring)
             {
-                transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+				RaycastHit hit;
+				if (Physics.Raycast(transform.position, Vector3.back, out hit))
+				{
+					if (hit.rigidbody.tag == "Wall" && hit.distance <= .5)
+					{
+						return;
+					}
+					else
+					{
+						transform.position += currentDirection.normalized * moveSpeed * Time.deltaTime;
+					}
+				}
+				
             }
         }
 
@@ -93,4 +142,10 @@ public class Elf : Player
             potionSpamPrevent = false;
         }
     }
+    void UpdateInfo()
+    {
+        UIManager.Instance.updateHealthText(3, hp);
+        UIManager.Instance.updateScoreText(3, score);
+
+	}
 }
