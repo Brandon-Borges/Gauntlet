@@ -57,6 +57,8 @@ public class Player : MonoBehaviour
         GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
         bullet.gameObject.GetComponent<Projectile>().assignShooter(this.gameObject.transform.tag);
         bullet.gameObject.GetComponent<Projectile>().forwardMovement = testForward;
+        bullet.gameObject.GetComponent<Projectile>().StartCoroutine
+            (bullet.gameObject.GetComponent<Projectile>().activationTimer());
         //yield return new WaitForSeconds(fireSpeed);
         while (test < fireSpeed) 
         {
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
             {
                 //isFiring = false;
                 //yield break;
-                test = fireSpeed;
+                test = 30;
             }
             else
             {
@@ -72,6 +74,7 @@ public class Player : MonoBehaviour
                 test += 0.05f;
             }
         }
+        test = 0;
         isFiring = false;
     }
 
