@@ -38,9 +38,13 @@ public class Ghost : Enemy
 
         if (other.transform.tag == "Door")
         {
-            for (int i = 0; i <= GameObject.FindGameObjectsWithTag("Door").Length; i++)
+            GameObject[] walls = GameObject.FindGameObjectsWithTag("Door");
+            for (int i = 0; i <= walls.Length; i++)
             {
-                //if (other.gameObject == i's gameObject)
+                if (other.gameObject == walls[i])
+                {
+
+                }
             }
         }
     }
