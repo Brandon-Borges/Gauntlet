@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     public string playerTag;
     public GameObject player;
 
-    bool canRefresh;
+    public bool canRefresh;
 
     // Start is called before the first frame update
     void Start()
@@ -123,21 +123,22 @@ public class Projectile : MonoBehaviour
 
     public IEnumerator activationTimer()
     {
+        yield return new WaitForSeconds(0.1f);
         if (playerTag == "Warrior")
         {
-            yield return new WaitForSeconds(player.GetComponent<Warrior>().fireSpeed);
+            yield return new WaitForSeconds(player.GetComponent<Warrior>().fireSpeed - 0.1f);
         }
         else if (playerTag == "Valkyrie")
         {
-            yield return new WaitForSeconds(player.GetComponent<Valkyrie>().fireSpeed);
+            yield return new WaitForSeconds(player.GetComponent<Valkyrie>().fireSpeed - 0.1f);
         }
         else if (playerTag == "Wizard")
         {
-            yield return new WaitForSeconds(player.GetComponent<Wizard>().fireSpeed);
+            yield return new WaitForSeconds(player.GetComponent<Wizard>().fireSpeed - 0.1f);
         }
         else if (playerTag == "Elf")
         {
-            yield return new WaitForSeconds(player.GetComponent<Elf>().fireSpeed);
+            yield return new WaitForSeconds(player.GetComponent<Elf>().fireSpeed - 0.5f);
         }
         if (this.isActiveAndEnabled) canRefresh = false;
     }
