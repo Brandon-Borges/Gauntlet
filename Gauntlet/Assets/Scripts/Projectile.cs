@@ -9,10 +9,13 @@ public class Projectile : MonoBehaviour
     public string playerTag;
     public GameObject player;
 
+    bool canRefresh;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag(playerTag);
+        canRefresh = true;
     }
 
     // Update is called once per frame
@@ -33,7 +36,8 @@ public class Projectile : MonoBehaviour
                 {
                     if (other.gameObject.GetComponent<Player>().friendlyFire == true)
                     {
-                        //deal damage
+                        other.gameObject.GetComponent<Player>().hp -=
+                            player.gameObject.GetComponent<Player>().projectileDamage;
                     }
                 }
             }
@@ -51,17 +55,57 @@ public class Projectile : MonoBehaviour
             {
                 other.gameObject.GetComponent<Ghost>().health -= player.GetComponent<Player>().projectileDamage;
             }
-
+            if (other.transform.tag == "Grunt")
+            {
+                other.gameObject.GetComponent<Grunt>().health -= player.GetComponent<Player>().projectileDamage;
+            }
             if (other.transform.tag == "Generator")
             {
                 other.gameObject.GetComponent<Generator>().health -= player.GetComponent<Player>().projectileDamage;
             }
 
+            if (playerTag == "Warrior")
+            {
+                if (canRefresh) player.GetComponent<Warrior>().isFiring = false;
+            }
+            else if (playerTag == "Valkyrie")
+            {
+                if (canRefresh) player.GetComponent<Valkyrie>().isFiring = false;
+            }
+            else if (playerTag == "Wizard")
+            {
+                if (canRefresh) player.GetComponent<Wizard>().isFiring = false;
+            }
+            else if (playerTag == "Elf")
+            {
+                if (canRefresh) player.GetComponent<Elf>().isFiring = false;
+            }
             Destroy(this.gameObject);
         }
     }
     public void assignShooter(string tag)
     {
         playerTag = tag;
+    }
+
+    public IEnumerator activationTimer()
+    {
+        if (playerTag == "Warrior")
+        {
+            yield return new WaitForSeconds(player.GetComponent<Warrior>().fireSpeed);
+        }
+        else if (playerTag == "Valkyrie")
+        {
+            yield return new WaitForSeconds(player.GetComponent<Valkyrie>().fireSpeed);
+        }
+        else if (playerTag == "Wizard")
+        {
+            yield return new WaitForSeconds(player.GetComponent<Wizard>().fireSpeed);
+        }
+        else if (playerTag == "Elf")
+        {
+            yield return new WaitForSeconds(player.GetComponent<Elf>().fireSpeed);
+        }
+        canRefresh = false;
     }
 }

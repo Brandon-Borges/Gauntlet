@@ -326,6 +326,8 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!54 &504328394
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -628,6 +630,8 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!114 &1049935270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,6 +961,8 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!54 &1675365343
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1169,6 +1175,8 @@ MonoBehaviour:
   currentDirection: {x: 0, y: 0, z: 0}
   coinSpamPrevent: 0
   potionSpamPrevent: 0
+  test: 0
+  MoveVector: {x: 0, y: 0}
 --- !u!54 &1808303174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1284,74 +1292,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1847127566580291811
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2007540098863217643, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_Name
-      value: Ghost
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.40398324
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5447242
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.7902682
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7688947227944428529, guid: 6f5c82c5cc14c904697631c44d05355f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6f5c82c5cc14c904697631c44d05355f, type: 3}
 --- !u!1001 &2835322520052311835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1364,6 +1304,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GhostGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150167434588990688, guid: e92daf5fb7999f4418db3db2dad1e19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124130052959840299, guid: e92daf5fb7999f4418db3db2dad1e19d,
+        type: 3}
+      propertyPath: spawnRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6302429577175242053, guid: e92daf5fb7999f4418db3db2dad1e19d,
         type: 3}
@@ -1483,6 +1433,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generator
       objectReference: {fileID: 0}
+    - target: {fileID: 4605413596831835874, guid: ec6173767a828f14f9b123cd37cb5c8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1499,6 +1454,5 @@ SceneRoots:
   - {fileID: 1808303178}
   - {fileID: 1675365347}
   - {fileID: 381689848}
-  - {fileID: 1847127566580291811}
   - {fileID: 2835322520052311835}
   - {fileID: 4912492670872752967}

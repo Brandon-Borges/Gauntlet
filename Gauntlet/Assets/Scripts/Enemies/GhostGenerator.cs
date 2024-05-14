@@ -7,7 +7,7 @@ public class GhostGenerator : Generator
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("spawnEnemy", spawnRate, spawnRate);
     }
 
     // Update is called once per frame
@@ -29,5 +29,9 @@ public class GhostGenerator : Generator
         {
             Destroy(this.gameObject);
         }
+
+        enemyToSpawn.GetComponent<Enemy>().health = health;
+
+        setSpawnPos();
     }
 }

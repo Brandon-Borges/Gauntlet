@@ -5,6 +5,7 @@ using UnityEngine;
 public class Elf : Player
 {
     private ElfInputs playerInputs;
+    public Vector2 MoveVector;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +19,13 @@ public class Elf : Player
     // Update is called once per frame
     void Update()
     {
-        
+        //if (!isFiring) StopCoroutine(shoot(MoveVector));
     }
 
     public void FixedUpdate()
     {
-        Vector2 MoveVector = playerInputs.Elf.Move.ReadValue<Vector2>();
+        MoveVector = playerInputs.Elf.Move.ReadValue<Vector2>();
+
 
         if (MoveVector.x > 0)
         {

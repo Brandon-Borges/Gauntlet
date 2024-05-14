@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public bool coinSpamPrevent;
     public bool potionSpamPrevent;
     private GameObject referencePotion;
+    public float test;
 
     // Start is called before the first frame update
     void Start()
@@ -48,14 +49,32 @@ public class Player : MonoBehaviour
 
     public IEnumerator shoot(Vector2 moveDir)
     {
+        test = 0;
+        isFiring = true;
         Vector3 testForward;
         if (moveDir.x != 0 || moveDir.y != 0) testForward = new Vector3(moveDir.x, 0, moveDir.y);
         else testForward = currentDirection;
         GameObject bullet = Instantiate(projectile, transform.position, projectile.transform.rotation);
         bullet.gameObject.GetComponent<Projectile>().assignShooter(this.gameObject.transform.tag);
         bullet.gameObject.GetComponent<Projectile>().forwardMovement = testForward;
-        isFiring = true;
-        yield return new WaitForSeconds(fireSpeed);
+        bullet.gameObject.GetComponent<Projectile>().StartCoroutine
+            (bullet.gameObject.GetComponent<Projectile>().activationTimer());
+        //yield return new WaitForSeconds(fireSpeed);
+        while (test < fireSpeed) 
+        {
+            if (isFiring == false)
+            {
+                //isFiring = false;
+                //yield break;
+                test = 30;
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.05f);
+                test += 0.05f;
+            }
+        }
+        test = 0;
         isFiring = false;
     }
 
