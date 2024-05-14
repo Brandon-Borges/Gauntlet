@@ -38,38 +38,6 @@ public class Ghost : Enemy
         {
             Destroy(this.gameObject);
         }
-
-        if (other.transform.tag == "Door")
-        {
-            GameObject[] walls = GameObject.FindGameObjectsWithTag("Door");
-            for (int i = 0; i <= walls.Length; i++)
-            {
-                if (other.gameObject == walls[i])
-                {
-                    if (other.gameObject.transform.position.z < this.transform.position.z)
-                    {
-                        speed = 0;
-                        break;
-                    }
-                    else if (other.gameObject.transform.position.z > this.transform.position.z)
-                    {
-                        speed = 0;
-                        break;
-                    }
-                    else if (other.gameObject.transform.position.x < this.transform.position.x)
-                    {
-                        speed = 0;
-                        break;
-                    }
-                    else if (other.gameObject.transform.position.x > this.transform.position.x)
-                    {
-                        speed = 0;
-                        break;
-                    }
-                    else speed = initSpeed;
-                }
-            }
-        }
     }
 
     public void DamageHero(GameObject player)
