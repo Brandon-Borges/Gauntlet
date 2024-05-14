@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
             if (keyCount > 0)
             {
                 keyCount--;
-                //other.gameObject.GetComponent<Door>().unlock();
+                Destroy(other.gameObject);
             }
         }
         if (other.transform.tag == "Potion")

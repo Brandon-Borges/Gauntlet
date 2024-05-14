@@ -96,6 +96,10 @@ public class Projectile : MonoBehaviour
             {
                 other.gameObject.GetComponent<Generator>().health -= player.GetComponent<Player>().projectileDamage;
             }
+            if (other.transform.tag == "Door")
+            {
+                
+            }
 
             if (playerTag == "Warrior")
             {
