@@ -23,6 +23,39 @@ public class Projectile : MonoBehaviour
     {
         transform.position += forwardMovement * speed * Time.deltaTime;
         if (forwardMovement == new Vector3(0, 0, 0)) Destroy(this.gameObject);
+
+        if (playerTag == "Warrior")
+        {
+            if (new Vector3
+                (player.GetComponent<Warrior>().MoveVector.x, 0, 
+                player.GetComponent<Warrior>().MoveVector.y) != forwardMovement &&
+                player.GetComponent<Warrior>().currentDirection != forwardMovement)
+                canRefresh = false;
+        }
+        else if (playerTag == "Valkyrie")
+        {
+            if (new Vector3
+                (player.GetComponent<Valkyrie>().MoveVector.x, 0,
+                player.GetComponent<Valkyrie>().MoveVector.y) != forwardMovement &&
+                player.GetComponent<Valkyrie>().currentDirection != forwardMovement)
+                canRefresh = false;
+        }
+        else if (playerTag == "Wizard")
+        {
+            if (new Vector3
+                (player.GetComponent<Wizard>().MoveVector.x, 0,
+                player.GetComponent<Wizard>().MoveVector.y) != forwardMovement &&
+                player.GetComponent<Wizard>().currentDirection != forwardMovement)
+                canRefresh = false;
+        }
+        else if (playerTag == "Elf")
+        {
+            if (new Vector3
+                (player.GetComponent<Elf>().MoveVector.x, 0,
+                player.GetComponent<Elf>().MoveVector.y) != forwardMovement &&
+                player.GetComponent<Elf>().currentDirection != forwardMovement)
+                canRefresh = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,19 +99,19 @@ public class Projectile : MonoBehaviour
 
             if (playerTag == "Warrior")
             {
-                if (canRefresh) player.GetComponent<Warrior>().isFiring = false;
+                if (this.canRefresh) player.GetComponent<Warrior>().isFiring = false;
             }
             else if (playerTag == "Valkyrie")
             {
-                if (canRefresh) player.GetComponent<Valkyrie>().isFiring = false;
+                if (this.canRefresh) player.GetComponent<Valkyrie>().isFiring = false;
             }
             else if (playerTag == "Wizard")
             {
-                if (canRefresh) player.GetComponent<Wizard>().isFiring = false;
+                if (this.canRefresh) player.GetComponent<Wizard>().isFiring = false;
             }
             else if (playerTag == "Elf")
             {
-                if (canRefresh) player.GetComponent<Elf>().isFiring = false;
+                if (this.canRefresh) player.GetComponent<Elf>().isFiring = false;
             }
             Destroy(this.gameObject);
         }
@@ -106,6 +139,6 @@ public class Projectile : MonoBehaviour
         {
             yield return new WaitForSeconds(player.GetComponent<Elf>().fireSpeed);
         }
-        canRefresh = false;
+        if (this.isActiveAndEnabled) canRefresh = false;
     }
 }
