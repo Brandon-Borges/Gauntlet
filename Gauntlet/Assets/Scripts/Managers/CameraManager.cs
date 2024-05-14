@@ -13,7 +13,7 @@ public class CameraManager : MonoBehaviour
     private float cameraX;
     private float cameraZ;
     public Vector3 cameraPos;
-    public Grid grid;
+    
 
     public List<GameObject> players = new List<GameObject>();
   

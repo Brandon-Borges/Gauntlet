@@ -8,19 +8,21 @@ public class GameManager : MonoBehaviour
 {
     public int playersOnExit;
     public List<GameObject> playerCount;
-    private int nextScene=1;
-	
+    public int nextScene=1;
+	public static GameManager Instance;
 
 
 
-	// Start is called before the first frame update
-	void Start()
-    {
-		
+	private void Awake()
+	{
+		if (Instance != null)
+			Destroy(this);
+		else
+			Instance = this;
 	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
        
     }
