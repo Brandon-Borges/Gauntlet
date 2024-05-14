@@ -24,30 +24,49 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Plus))
+       if(Input.GetKeyDown(KeyCode.Keypad0))
 		{
 			if (activePlayers == 0)
 			playerCount[0].gameObject.SetActive(true);
-			activePlayers++;
+			StartCoroutine("newPlayer");
 		}
-		if (Input.GetKeyDown(KeyCode.Plus))
+		if (Input.GetKeyDown(KeyCode.Keypad0))
 		{
 			if (activePlayers == 1)
 			playerCount[1].gameObject.SetActive(true);
-			activePlayers++;
+			StartCoroutine("newPlayer");
 		}
-		if (Input.GetKeyDown(KeyCode.Plus))
+		if (Input.GetKeyDown(KeyCode.Keypad0))
 		{
 			if (activePlayers == 2)
 			playerCount[2].gameObject.SetActive(true);
-			activePlayers++;
+			StartCoroutine("newPlayer");
+			
 		}
-		if (Input.GetKeyDown(KeyCode.Plus))
+		if (Input.GetKeyDown(KeyCode.Keypad0))
 		{
 			if (activePlayers == 3)
 			playerCount[3].gameObject.SetActive(true);
-			activePlayers++;
+			StartCoroutine("newPlayer");
+			if (playerCount[2].activeSelf)
+			{
+				playerCount[3].gameObject.SetActive(true);
+			}
 		}
+			
+
+
+	}
+	public IEnumerator newPlayer()
+	{
+		if(activePlayers ==1)
+	  yield return new WaitForSeconds(1f);
+		activePlayers = 2;
+		if(activePlayers ==2)
+	yield return new WaitForSeconds(1f);
+		activePlayers = 3;
+		yield return new WaitForSeconds(1f);
+
 
 	}
     private void loadNextLevel()
