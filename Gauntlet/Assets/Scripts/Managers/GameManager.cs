@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> playerCount;
     public int nextScene=1;
 	public static GameManager Instance;
-
+	public int activePlayers = 0;
 
 
 	private void Awake()
@@ -24,21 +24,29 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Keypad1))
+       if(Input.GetKeyDown(KeyCode.Plus))
 		{
+			if (activePlayers == 0)
 			playerCount[0].gameObject.SetActive(true);
+			activePlayers++;
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad2))
+		if (Input.GetKeyDown(KeyCode.Plus))
 		{
+			if (activePlayers == 1)
 			playerCount[1].gameObject.SetActive(true);
+			activePlayers++;
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad3))
+		if (Input.GetKeyDown(KeyCode.Plus))
 		{
+			if (activePlayers == 2)
 			playerCount[2].gameObject.SetActive(true);
+			activePlayers++;
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad4))
+		if (Input.GetKeyDown(KeyCode.Plus))
 		{
+			if (activePlayers == 3)
 			playerCount[3].gameObject.SetActive(true);
+			activePlayers++;
 		}
 
 	}
