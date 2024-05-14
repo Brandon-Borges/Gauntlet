@@ -43,7 +43,22 @@ public class Ghost : Enemy
             {
                 if (other.gameObject == walls[i])
                 {
+                    if (other.gameObject.transform.position.z < this.transform.position.z)
+                    {
 
+                    }
+                    else if (other.gameObject.transform.position.z > this.transform.position.z)
+                    {
+
+                    }
+                    else if (other.gameObject.transform.position.x < this.transform.position.x)
+                    {
+
+                    }
+                    else if (other.gameObject.transform.position.x > this.transform.position.x)
+                    {
+
+                    }
                 }
             }
         }
